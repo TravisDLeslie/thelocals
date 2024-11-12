@@ -62,10 +62,10 @@ const AreasPage = () => {
           {/* Bucks County */}
           <div>
             <h3
-              className="text-xl ml-12 font-bold flex items-center cursor-pointer"
+              className="text-xl  md:ml-12 font-bold flex items-center cursor-pointer"
               onClick={() => toggleCounty("bucks")}
             >
-              Bucks County{" "}
+              Cites in Bucks County{" "}
               <span className="text-[#2DCBE0] text-lg ml-2">
                 {expandedCounty === "bucks" ? "▲" : "▼"}
               </span>
@@ -136,7 +136,7 @@ const AreasPage = () => {
               className="text-xl font-bold flex items-center cursor-pointer"
               onClick={() => toggleCounty("montgomery")}
             >
-              Montgomery County{" "}
+              Cities in Montgomery County{" "}
               <span className="text-[#2DCBE0] text-lg ml-2">
                 {expandedCounty === "montgomery" ? "▲" : "▼"}
               </span>
