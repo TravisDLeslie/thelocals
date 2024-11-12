@@ -34,7 +34,7 @@ const Process = () => {
         {steps.map((step, index) => (
           <motion.div
             key={index}
-            className="flex flex-col text-[#fff] items-center rounded-sm text-center bg-[#1e1e1e] py-24 px-6 shadow-lg relative"
+            className="flex flex-col text-[#fff] items-center rounded-lg text-center bg-[#1e1e1e] py-24 px-6 shadow-lg relative"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
