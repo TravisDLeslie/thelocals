@@ -14,8 +14,8 @@ const Navbar = () => {
   return (
     <nav className="bg-[#0F0F0F] text-white py-4 px-6 flex w-full justify-between items-center z-10">
       {/* Logo */}
-      <div className="text-2xl ml-12 font-bold">
-        <img src={logo} alt="The Locals" className="h-24" />
+      <div className="text-2xl ml-2 md:ml-12 font-bold">
+      <img src={logo} alt="The Locals" className="h-24" />
       </div>
 
       {/* Mobile-Only Text */}
