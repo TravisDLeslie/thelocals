@@ -29,6 +29,7 @@ const Hero = () => {
         autoPlay
         loop
         muted={isMuted} // Controlled by state
+        playsInline // Add this line
         poster={heroImage} // Set the fallback image as the poster
       />
 
@@ -43,22 +44,21 @@ const Hero = () => {
           Discover the best local mobile detail experiences tailored for you.
         </p>
 
-      {/* Reviews Row */}
-<div className="flex items-center justify-center space-x-4 my-4">
-  {/* Render Stars */}
-  <div className="flex space-x-1">
-    {Array(5)
-      .fill()
-      .map((_, i) => (
-        <img key={i} src={stars} alt="Star" className="h-6" />
-      ))}
-  </div>
-  {/* Text */}
-  <p className="text-xl font-semibold">
-    60+ <span className="text-gray-100">5-star reviews</span>
-  </p>
-</div>
-
+        {/* Reviews Row */}
+        <div className="flex items-center justify-center space-x-4 my-4">
+          {/* Render Stars */}
+          <div className="flex space-x-1">
+            {Array(5)
+              .fill()
+              .map((_, i) => (
+                <img key={i} src={stars} alt="Star" className="h-6" />
+              ))}
+          </div>
+          {/* Text */}
+          <p className="text-xl font-semibold">
+            60+ <span className="text-gray-100">5-star reviews</span>
+          </p>
+        </div>
 
         {/* Call-to-Action Button */}
         <button className="bg-[#2DCBE0] text-[#1e1e1e] font-bold uppercase py-3 px-8 rounded mt-6 hover:bg-[#5E297F] hover:text-white">

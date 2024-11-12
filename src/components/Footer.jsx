@@ -8,7 +8,7 @@ import book from "../assets/icons/book.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0F0F0F] text-white py-36 px-6">
+    <footer className="bg-[#0F0F0F] text-white py-12 md:py-36 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12">
         {/* Contact and Info Section */}
         <div className="w-full md:w-1/2 space-y-8 text-center md:text-left">
