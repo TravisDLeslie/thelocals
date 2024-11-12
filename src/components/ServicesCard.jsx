@@ -59,7 +59,7 @@ const ServiceCard = ({
               <img
                 src={image}
                 alt={`Slider ${idx + 1}`}
-                className="w-full h-48 object-cover"
+                className="w-full h-64 object-cover"
               />
             </SwiperSlide>
           ))}
