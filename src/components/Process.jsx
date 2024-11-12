@@ -25,12 +25,12 @@ const Process = () => {
 
   return (
     <section className="bg-[#fff] text-[#1e1e1e] py-24">
-      <h2 className="text-center text-3xl font-bold mb-8">
+      <h2 className="p-4 text-center text-3xl font-bold mb-8">
         Our Mobile Detailing Simple 3 Step Process
       </h2>
 
       {/* Responsive Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 p-4 gap-8 py-12 max-w-7xl mx-auto">
         {steps.map((step, index) => (
           <motion.div
             key={index}
