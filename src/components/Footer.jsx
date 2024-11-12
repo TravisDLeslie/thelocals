@@ -47,7 +47,7 @@ const Footer = () => {
           {/* Service Areas Section */}
           <div>
             <h3 className="text-[#2DCBE0] font-bold">OUR SERVICES AREAS</h3>
-            <p>
+            <p className="w-[300px]">
               The Locals Detailing is Proudly Serving Residents in Bucks and Montgomery County in Pennsylvania.
             </p>
           </div>
