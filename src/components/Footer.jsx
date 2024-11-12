@@ -1,5 +1,5 @@
 import React from "react";
-import footerImage from "../assets/images/footer.png"; // Replace with your image path
+import footerImage from "../assets/images/footer.jpg"; // Replace with your image path
 import fb from "../assets/icons/fb.svg";
 import ig from "../assets/icons/ig.svg";
 import phone from "../assets/icons/phone.svg";
