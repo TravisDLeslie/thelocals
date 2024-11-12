@@ -1,5 +1,6 @@
 import React from "react";
-import icon1 from "../assets/icons/locallyownedIcon.png"; // Replace with your icon paths
+import { motion } from "framer-motion";
+import icon1 from "../assets/icons/locallyownedIcon.png";
 import icon2 from "../assets/icons/mobileIcon.png";
 import icon3 from "../assets/icons/trustIcon.png";
 import icon4 from "../assets/icons/locationIcon.png";
@@ -39,6 +40,24 @@ const WhyTheLocals = () => {
     },
   ];
 
+  // Animation Variants
+  const itemVariants = {
+    hidden: {
+      rotateY: -90,
+      opacity: 0,
+    },
+    visible: (i) => ({
+      rotateY: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        delay: i * 0.2,
+      },
+    }),
+  };
+
   return (
     <section className="bg-white py-24 px-4">
       <h2 className="text-center text-3xl font-bold text-black mb-8">
@@ -48,9 +67,14 @@ const WhyTheLocals = () => {
       {/* Responsive Grid */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {reasons.map((reason, index) => (
-          <div
+          <motion.div
             key={index}
             className="flex flex-col items-center text-center space-y-4 bg-[#f9f9f9] p-6 rounded-lg shadow hover:shadow-lg transition-shadow"
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            custom={index}
           >
             {/* Icon */}
             <div className="p-4 rounded-full">
@@ -66,7 +90,7 @@ const WhyTheLocals = () => {
 
             {/* Description */}
             <p className="text-gray-600">{reason.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
 

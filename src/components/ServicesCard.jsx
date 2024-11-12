@@ -1,11 +1,12 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { motion } from "framer-motion"; // Import Framer Motion
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 const ServiceCard = ({
+  index,
   title,
   icon,
   isMostPopular,
@@ -14,6 +15,24 @@ const ServiceCard = ({
   buttonText,
   sliderImages,
 }) => {
+  // Animation variants for the icon with custom delay
+  const iconVariants = {
+    hidden: {
+      rotateY: -90,
+      opacity: 0,
+    },
+    visible: {
+      rotateY: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        delay: index * 0.2, // Delay based on index
+      },
+    },
+  };
+
   return (
     <div className="bg-[#1e1e1e] rounded-sm shadow-lg flex flex-col relative overflow-hidden">
       {/* Slider Section */}
@@ -30,16 +49,16 @@ const ServiceCard = ({
           modules={[Pagination]}
           spaceBetween={10}
           slidesPerView={1}
-          initialSlide={0} // Ensures it starts on the first slide
+          initialSlide={0}
           pagination={{
-            clickable: true, // Enables clickable dots
+            clickable: true,
           }}
         >
-          {sliderImages.map((image, index) => (
-            <SwiperSlide key={index}>
+          {sliderImages.map((image, idx) => (
+            <SwiperSlide key={idx}>
               <img
                 src={image}
-                alt={`Slider ${index + 1}`}
+                alt={`Slider ${idx + 1}`}
                 className="w-full h-48 object-cover"
               />
             </SwiperSlide>
@@ -55,14 +74,9 @@ const ServiceCard = ({
             src={icon}
             alt="Service Icon"
             className="h-6 w-6 text-[#2DCBE0] mr-3"
-            initial={{ y: -20, opacity: 0 }} // Start position
-            animate={{ y: 0, opacity: 1 }} // End position
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 15,
-              delay: 0.2,
-            }}
+            variants={iconVariants}
+            initial="hidden"
+            animate="visible"
             whileHover={{ scale: 1.2, rotate: 360 }} // Fun hover effect
           />
           <h2 className="text-xl font-bold text-white">{title}</h2>

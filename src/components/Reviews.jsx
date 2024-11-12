@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import stars from "../assets/icons/ReviewStars.svg"; // Star icons
 import prevIcon from "../assets/icons/prev.svg"; // Previous arrow icon
 import nextIcon from "../assets/icons/next.svg"; // Next arrow icon
@@ -22,11 +23,31 @@ const Reviews = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? reviews.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? reviews.length - 1 : prevIndex - 1
+    );
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === reviews.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === reviews.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  // Animation variants for the container
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2, // Delay between each star's animation
+      },
+    },
+  };
+
+  // Animation variants for each star
+  const starVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   };
 
   return (
@@ -34,13 +55,23 @@ const Reviews = () => {
       <div className="max-w-3xl mx-auto text-center">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex justify-center items-center space-x-2">
-            <img src={stars} alt="5 Stars" className="h-6" />
-            <img src={stars} alt="5 Stars" className="h-6" />
-            <img src={stars} alt="5 Stars" className="h-6" />
-            <img src={stars} alt="5 Stars" className="h-6" />
-            <img src={stars} alt="5 Stars" className="h-6" />
-          </div>
+          <motion.div
+            className="flex justify-center items-center space-x-2"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            {[...Array(5)].map((_, index) => (
+              <motion.img
+                key={index}
+                src={stars}
+                alt="5 Stars"
+                className="h-6"
+                variants={starVariants}
+              />
+            ))}
+          </motion.div>
           <h2 className="text-3xl font-bold mt-4">Customers Love Us</h2>
           <p className="text-gray-400 mt-2">Real reviews from happy customers.</p>
         </div>
@@ -48,27 +79,29 @@ const Reviews = () => {
         {/* Review */}
         <div>
           <div className="flex justify-center items-center space-x-2 mb-4">
-            <img src={stars} alt="5 Stars" className="h-6" />
-            <img src={stars} alt="5 Stars" className="h-6" />
-            <img src={stars} alt="5 Stars" className="h-6" />
-            <img src={stars} alt="5 Stars" className="h-6" />
-            <img src={stars} alt="5 Stars" className="h-6" />
+            {[...Array(5)].map((_, index) => (
+              <img key={index} src={stars} alt="5 Stars" className="h-6" />
+            ))}
           </div>
-          <p className="text-lg font-medium mb-6">{reviews[currentIndex].text}</p>
-          <p className="text-sm text-gray-400">- {reviews[currentIndex].author}</p>
+          <p className="text-lg font-medium mb-6">
+            {reviews[currentIndex].text}
+          </p>
+          <p className="text-sm text-gray-400">
+            - {reviews[currentIndex].author}
+          </p>
         </div>
 
         {/* Navigation */}
         <div className="flex justify-center items-center gap-4 mt-6">
           <button
             onClick={handlePrev}
-            className="p-2 rounded-full  hover:bg-gray-700 transition-colors"
+            className="p-2 rounded-full hover:bg-gray-700 transition-colors"
           >
             <img src={prevIcon} alt="Previous" className="h-6 w-6" />
           </button>
           <button
             onClick={handleNext}
-            className="p-2 rounded-full  hover:bg-gray-700 transition-colors"
+            className="p-2 rounded-full hover:bg-gray-700 transition-colors"
           >
             <img src={nextIcon} alt="Next" className="h-6 w-6" />
           </button>
