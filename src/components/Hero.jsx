@@ -40,7 +40,7 @@ const Hero = () => {
         {/* Main Hero Content */}
         <h1 className="text-4xl md:text-6xl font-bold">Welcome to The Locals</h1>
         <p className="mt-4 text-lg md:text-xl">
-          Where convenience meets quality.
+          Where convenience meets quality
         </p>
 
         {/* Reviews Row */}

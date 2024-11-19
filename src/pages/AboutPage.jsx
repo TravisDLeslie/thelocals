@@ -26,7 +26,7 @@ const AboutPage = () => {
             The Locals Detailing LLC is a homegrown mobile auto detailing service.
             With an entrepreneurial mindset and an unwavering commitment to
             customer satisfaction, we have established ourselves as the premier
-            solution for the mobile detailing market. We have detailed over 500
+            solution for the mobile detailing market. We have detailed over 1000
             cars and believe great service begins with the highest quality. We
             hope to serve you soon!
           </p>
