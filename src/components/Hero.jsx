@@ -50,7 +50,7 @@ const Hero = () => {
             {Array(5)
               .fill()
               .map((_, i) => (
-                <img key={i} src={stars} alt="Star" className="h-6" />
+                <img key={i} src={stars} alt="Star" className="h-4 md:h-6" />
               ))}
           </div>
           {/* Text */}

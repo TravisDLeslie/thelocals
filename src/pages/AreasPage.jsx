@@ -35,8 +35,9 @@ const AreasPage = () => {
         </MapContainer>
 
         {/* Service Areas Text */}
+        
         <p className="text-lg mt-6 text-gray-400">
-          Our mobile unit services Montgomery, Bucks, Chester, Delaware, Berks, and Philadelphia counties.
+        <p className="text-white mb-2">Based out of Warrington</p> Our mobile unit services Montgomery, Bucks, Chester, Delaware, Berks, and Philadelphia counties.
         </p>
       </div>
     </section>
