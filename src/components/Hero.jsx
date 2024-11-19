@@ -27,7 +27,6 @@ const Hero = () => {
         className="absolute top-0 left-0 w-full h-full object-cover"
         src={heroVideo}
         autoPlay
-        loop
         muted={isMuted} // Controlled by state
         playsInline // Add this line
         poster={heroImage} // Set the fallback image as the poster
@@ -41,7 +40,7 @@ const Hero = () => {
         {/* Main Hero Content */}
         <h1 className="text-4xl md:text-6xl font-bold">Welcome to The Locals</h1>
         <p className="mt-4 text-lg md:text-xl">
-          Discover the best local mobile detail experiences tailored for you.
+          Where convenience meets quality.
         </p>
 
         {/* Reviews Row */}
@@ -56,7 +55,7 @@ const Hero = () => {
           </div>
           {/* Text */}
           <p className="text-xl font-semibold">
-            60+ <span className="text-gray-100">5-star reviews</span>
+            100+ <span className="ml-2 text-gray-100">5-star reviews</span>
           </p>
         </div>
 
@@ -69,7 +68,7 @@ const Hero = () => {
       {/* Mute/Unmute Button */}
       <button
         onClick={toggleMute}
-        className="absolute bottom-8 right-8 bg-white text-black font-bold p-3 rounded-full shadow hover:bg-gray-200 transition-colors"
+        className="absolute top-8 right-8 bg-white text-black font-bold p-3 rounded-full shadow hover:bg-gray-200 transition-colors"
       >
         <img
           src={isMuted ? soundOffIcon : soundOnIcon}
