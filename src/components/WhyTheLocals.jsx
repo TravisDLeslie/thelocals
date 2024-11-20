@@ -5,6 +5,7 @@ import icon2 from "../assets/icons/mobileIcon.png";
 import icon3 from "../assets/icons/trustIcon.png";
 import icon4 from "../assets/icons/locationIcon.png";
 import icon5 from "../assets/icons/ecoIcon.png";
+import AnimatedButton from "../components/RippleButton";
 
 const WhyTheLocals = () => {
   const reasons = [
@@ -95,9 +96,7 @@ const WhyTheLocals = () => {
       </div>
 
       <div className="mt-24 text-center">
-        <button className="bg-[#2DCBE0] text-black font-bold py-3 px-8 rounded shadow hover:bg-[#5E297F] hover:text-white transition-colors duration-300">
-          Schedule Your Appointment
-        </button>
+      <AnimatedButton />
       </div>
     </section>
   );

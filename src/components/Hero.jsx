@@ -4,6 +4,7 @@ import heroImage from "../assets/images/TL_Hero.png"; // Import fallback image
 import stars from "../assets/icons/ReviewStars.svg"; // Import stars SVG
 import soundOnIcon from "../assets/icons/soundon.svg"; // Import sound-on icon
 import soundOffIcon from "../assets/icons/soundoff.svg"; // Import sound-off icon
+import AnimatedButton from "../components/RippleButton";
 
 const Hero = () => {
   const [isMuted, setIsMuted] = useState(true); // State to toggle mute
@@ -58,11 +59,8 @@ const Hero = () => {
             100+ <span className="ml-2 text-gray-100">5-star reviews</span>
           </p>
         </div>
+        <AnimatedButton />
 
-        {/* Call-to-Action Button */}
-        <button className="bg-[#2DCBE0] text-[#1e1e1e] font-bold uppercase py-3 px-8 rounded mt-6 hover:bg-[#5E297F] hover:text-white">
-          Schedule Your Appointment
-        </button>
       </div>
 
       {/* Mute/Unmute Button */}

@@ -1,5 +1,6 @@
 import React from "react";
 import aboutus from "../assets/images/Aboutus.png";
+import AnimatedButton from "../components/RippleButton";
 
 const AboutUs = () => {
   return (
@@ -33,9 +34,7 @@ const AboutUs = () => {
           </p>
 
           {/* Call-to-Action Button */}
-          <button className="bg-[#2DCBE0] text-[#1e1e1e] font-bold py-3 px-8 rounded shadow hover:bg-[#5E297F] hover:text-white transition-colors duration-300">
-            Schedule Your Appointment
-          </button>
+         <AnimatedButton />
         </div>
       </div>
 

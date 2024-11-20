@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import AnimatedButton from "../components/RippleButton";
 
 const AddOns = () => {
   const addOns = [
@@ -86,9 +87,7 @@ const AddOns = () => {
       </div>
 
       <div className="mt-8 text-center">
-        <button className="bg-[#2DCBE0] text-black font-bold py-3 px-8 rounded shadow hover:bg-[#5E297F] hover:text-white transition-colors duration-300">
-          Schedule Your Appointment
-        </button>
+        <AnimatedButton />
       </div>
     </section>
   );

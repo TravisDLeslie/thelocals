@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import logo from "../assets/icons/TheLocalsLogo.png";
 import menuIcon from "../assets/icons/menu.svg";
 import closeIcon from "../assets/icons/close.svg"; // Import a close icon if available
+import AnimatedButton from "../components/RippleButton";
+
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
