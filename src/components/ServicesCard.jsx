@@ -14,6 +14,7 @@ const ServiceCard = ({
   price,
   buttonText,
   sliderImages,
+  url,
 }) => {
   // Animation variants for the icon with custom delay
   const iconVariants = {
@@ -112,9 +113,12 @@ const ServiceCard = ({
         </p>
 
         {/* Choose Package Button */}
-        <button className="bg-[#2DCBE0] text-black font-bold py-2 px-4 rounded hover:bg-[#5E297F] hover:text-white">
+        <a
+          href={url} // Link to the booking page
+          className="bg-[#2DCBE0] text-black font-bold py-2 px-4 rounded hover:bg-[#5E297F] hover:text-white text-center"
+        >
           {buttonText}
-        </button>
+        </a>
       </div>
     </div>
   );

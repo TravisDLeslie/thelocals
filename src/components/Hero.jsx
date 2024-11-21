@@ -59,8 +59,7 @@ const Hero = () => {
             100+ <span className="ml-2 text-gray-100">5-star reviews</span>
           </p>
         </div>
-        <AnimatedButton />
-
+        <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" /> {/* Add your URL here */}
       </div>
 
       {/* Mute/Unmute Button */}

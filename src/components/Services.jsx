@@ -47,6 +47,8 @@ const ServicesPage = () => {
       price: "$250",
       buttonText: "Choose Package",
       sliderImages: [all1, all2, all3],
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/epv1N0MjQjRPJ6RpZeRU", // Add booking URL
+
     },
     {
       title: "Interior Only Package",
@@ -69,6 +71,8 @@ const ServicesPage = () => {
       price: "$180",
       buttonText: "Choose Package",
       sliderImages: [interior1, interior2, interior3],
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/EffVmklBKRmLedepiWdp", // Add booking URL
+
     },
     {
       title: "Exterior Only Package",
@@ -87,6 +91,8 @@ const ServicesPage = () => {
       price: "$130",
       buttonText: "Choose Package",
       sliderImages: [exterior1, exterior2, exterior3],
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/kWwqwFsjfzChDywownn1", // Add booking URL
+
     },
   ];
 
