@@ -13,13 +13,20 @@ const Footer = () => {
         {/* Contact and Info Section */}
         <div className="w-full md:w-1/2 space-y-8 text-center md:text-left">
           {/* Header Section */}
-          <div>
-            <h2 className="text-2xl font-bold">The Locals Detailing</h2>
-            <p className="text-gray-400">100% Satisfaction Guaranteed.</p>
-            <button className="bg-[#2DCBE0] text-[#1e1e1e] font-bold py-3 px-8 mt-4 rounded shadow hover:bg-[#5E297F] hover:text-white transition-colors duration-300">
-              Schedule Your Appointment
-            </button>
-          </div>
+          <div className="space-y-4">
+      <h2 className="text-2xl font-bold">The Locals Detailing</h2>
+      <p className="text-gray-400">100% Satisfaction Guaranteed.</p>
+      <div className="mt-6"> {/* Add top margin here to create space */}
+        <a
+          href="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-[#2DCBE0] text-[#1e1e1e] font-bold py-3 px-8 rounded shadow hover:bg-[#5E297F] hover:text-white transition-colors duration-300"
+        >
+          Schedule Your Appointment
+        </a>
+      </div>
+    </div>
 
           {/* Contact Section */}
           <div>
@@ -80,10 +87,16 @@ const Footer = () => {
 
         {/* CTA Button */}
         <div>
-          <button className="border-2 border-[#2DCBE0] text-[#2DCBE0] font-bold py-3 px-8 rounded hover:bg-[#2DCBE0] hover:text-[#1e1e1e] transition-colors duration-300">
-            Schedule Your Appointment
-          </button>
-        </div>
+  <a
+    href="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="border-2 border-[#2DCBE0] text-[#2DCBE0] font-bold py-3 px-8 rounded hover:bg-[#2DCBE0] hover:text-[#1e1e1e] transition-colors duration-300"
+  >
+    Schedule Your Appointment
+  </a>
+</div>
+
 
         {/* Footer Bottom */}
         <div className="text-gray-500">

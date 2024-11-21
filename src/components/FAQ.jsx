@@ -119,7 +119,7 @@ const FAQ = () => {
 
         {/* CTA Button */}
         <div className="mt-6">
-          <AnimatedButton/>        </div>
+          <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K"/>        </div>
       </div>
     </section>
   );

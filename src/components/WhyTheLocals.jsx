@@ -96,7 +96,7 @@ const WhyTheLocals = () => {
       </div>
 
       <div className="mt-24 text-center">
-      <AnimatedButton />
+      <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" />
       </div>
     </section>
   );

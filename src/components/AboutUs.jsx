@@ -34,7 +34,7 @@ const AboutUs = () => {
           </p>
 
           {/* Call-to-Action Button */}
-         <AnimatedButton />
+         <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" />
         </div>
       </div>
 
