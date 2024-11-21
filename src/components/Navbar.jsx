@@ -66,9 +66,11 @@ const Navbar = () => {
 
       {/* Schedule Appointment Button */}
       <div className="hidden md:block">
-        <button className="bg-[#2DCBE0] font-bold text-[#1e1e1e] py-2 px-4 mr-12 rounded hover:bg-blue-600">
+      <a href="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K">
+        <button className="bg-[#2DCBE0] font-bold text-[#1e1e1e] py-2 px-4 mr-12 rounded hover:bg-[#5E287E] hover:text-white">
           Schedule Your Appointment
         </button>
+        </a>
       </div>
 
       {/* Mobile Menu Button */}
@@ -159,9 +161,11 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <button className="bg-[#2DCBE0] font-bold text-[#1e1e1e] py-3 px-8 rounded hover:bg-blue-600">
+          <a href="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K">
+          <button className="bg-[#2DCBE0] font-bold text-[#1e1e1e] py-3 px-8 rounded hover:bg-[#5E287E] hover:text-white">
             Schedule Your Appointment
           </button>
+          </a>
         </div>
       )}
     </nav>

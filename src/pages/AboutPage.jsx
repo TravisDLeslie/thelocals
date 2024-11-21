@@ -1,10 +1,10 @@
 import React from "react";
 import aboutus from "../assets/images/Aboutus.png";
+import AnimatedButton from "../components/RippleButton";
 
 const AboutPage = () => {
   return (
-    <section className="bg-[#0F0F0F] py-12">
-      {/* Top White Padding */}
+    <section className="bg-[#0F0F0F] py-8">
 
       {/* Main Content with Dark Background */}
       <div className="bg-[#0F0F0F] text-white py-12 px-4">
@@ -32,9 +32,7 @@ const AboutPage = () => {
           </p>
 
           {/* Call-to-Action Button */}
-          <button className="bg-[#2DCBE0] text-[#1e1e1e] font-bold py-3 px-8 rounded shadow hover:bg-[#5E297F] hover:text-white transition-colors duration-300">
-            Schedule Your Appointment
-          </button>
+         <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" />
         </div>
       </div>
 

@@ -15,11 +15,6 @@ import all3 from "../assets/images/all3.jpg";
 
 
 
-
-
-
-
-
 const ServicesPage = () => {
   const services = [
     {

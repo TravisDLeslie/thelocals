@@ -3,14 +3,20 @@ import ServiceCard from "../components/ServicesCard";
 import all from "../assets/icons/allservices.svg";
 import interior from "../assets/icons/Interior.svg";
 import exterior from "../assets/icons/Exterior.svg";
-import sliderImage1 from "../assets/images/slider-image1.png";
-import sliderImage2 from "../assets/images/slider-image2.png";
-import sliderImage3 from "../assets/images/slider-image3.png";
+import interior1 from "../assets/images/interior1.jpg";
+import interior2 from "../assets/images/interior2.jpg";
+import interior3 from "../assets/images/interior3.jpg";
+import exterior1 from "../assets/images/exterior1.jpg";
+import exterior2 from "../assets/images/exterior2.jpg";
+import exterior3 from "../assets/images/exterior3.jpg";
+import all1 from "../assets/images/all1.jpg";
+import all2 from "../assets/images/all2.jpg";
+import all3 from "../assets/images/all3.jpg";
 
 const ServicesPage = () => {
   const services = [
     {
-      title: "Inside + Out Packages",
+      title: "Inside + Out Package",
       icon: all,
       isMostPopular: true,
       description: {
@@ -33,10 +39,12 @@ const ServicesPage = () => {
       },
       price: "$250",
       buttonText: "Choose Package",
-      sliderImages: [sliderImage1, sliderImage2, sliderImage3],
+      sliderImages: [all1, all2, all3],
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/epv1N0MjQjRPJ6RpZeRU", // Add booking URL
+
     },
     {
-      title: "Interior Only Packages",
+      title: "Interior Only Package",
       icon: interior,
       isMostPopular: false,
       description: {
@@ -55,10 +63,12 @@ const ServicesPage = () => {
       },
       price: "$180",
       buttonText: "Choose Package",
-      sliderImages: [sliderImage2, sliderImage3, sliderImage1],
+      sliderImages: [interior1, interior2, interior3],
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/EffVmklBKRmLedepiWdp", // Add booking URL
+
     },
     {
-      title: "Exterior Only Packages",
+      title: "Exterior Only Package",
       icon: exterior,
       isMostPopular: false,
       description: {
@@ -73,7 +83,9 @@ const ServicesPage = () => {
       },
       price: "$130",
       buttonText: "Choose Package",
-      sliderImages: [sliderImage3, sliderImage1, sliderImage2],
+      sliderImages: [exterior1, exterior2, exterior3],
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/kWwqwFsjfzChDywownn1", // Add booking URL
+
     },
   ];
 

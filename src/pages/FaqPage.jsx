@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import AnimatedButton from "../components/RippleButton";
+
 
 
 const FAQPage = () => {
@@ -117,10 +119,7 @@ const FAQPage = () => {
 
         {/* CTA Button */}
         <div className="mt-6">
-          <button className="bg-[#2DCBE0] mt-12 text-[#1e1e1e] font-bold py-3 px-8 rounded shadow hover:bg-[#5E297F] hover:text-white transition-colors duration-300">
-            Schedule Your Appointment
-          </button>
-        </div>
+          <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K"/>        </div>
       </div>
     </section>
   );

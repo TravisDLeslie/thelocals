@@ -31,18 +31,34 @@ const Footer = () => {
           {/* Contact Section */}
           <div>
             <h3 className="text-[#2DCBE0] font-bold">CONTACT</h3>
-            <div className="flex items-center space-x-3">
-              <img src={phone} alt="Phone" className="h-5 w-5" />
-              <p>267-980-3237</p>
+            
+            <div className="flex items-center space-x-3 hover:text-[#5E297F]">
+            <a
+  href="tel:2679803237"
+  className="flex items-center space-x-3 hover:text-[#5E297F]"
+>
+  <img src={phone} alt="Phone" className="h-5 w-5" />
+  <p>267-980-3237</p>
+</a>
+
             </div>
-            <div className="flex items-center space-x-3">
-              <img src={mail} alt="Email" className="h-5 w-5" />
-              <p>info@thelocalsdetailing.com</p>
+            
+            <div className="flex items-center space-x-3 hover:text-[#5E297F]">
+            <a
+  href="mailto:info@thelocalsdetailing.com"
+  className="flex items-center space-x-3 hover:text-[#5E297F]"
+>
+  <img src={mail} alt="Email" className="h-5 w-5" />
+  <p>info@thelocalsdetailing.com</p>
+</a>
+
             </div>
-            <div className="flex items-center space-x-3">
+            <a href="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K">
+            <div className="flex items-center space-x-3 hover:text-[#5E297F]">
               <img src={book} alt="Book" className="h-5 w-5" />
               <p>Book Online</p>
             </div>
+            </a>
           </div>
 
           {/* Hours Section */}
@@ -74,10 +90,10 @@ const Footer = () => {
       <div className="mt-12 space-y-6 text-center">
         {/* Social Media Icons */}
         <div className="flex justify-center space-x-6">
-          <a href="#" className="hover:opacity-80">
+          <a href="https://www.facebook.com/thelocals.detailing/" className="hover:opacity-80">
             <img src={fb} alt="Facebook" className="h-6 w-6" />
           </a>
-          <a href="#" className="hover:opacity-80">
+          <a href="https://www.instagram.com/thelocals.detailing/?hl=en" className="hover:opacity-80">
             <img src={ig} alt="Instagram" className="h-6 w-6" />
           </a>
           <a href="tel:267-980-3237" className="hover:opacity-80">
