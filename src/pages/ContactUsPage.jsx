@@ -6,7 +6,6 @@ const ContactUsPage = () => {
       <div className="max-w-lg mx-auto text-center">
         <h2 className="text-2xl font-bold mb-4 text-white">The Locals Detailing</h2>
         <p className="text-lg mb-6 text-white">Get Your Free Quote Today!</p>
-        <p className="text-sm text-gray-400 mb-6">*All fields are required</p>
 
         <form className="space-y-4">
           {/* Name Input */}

@@ -4,6 +4,7 @@ import heroImage from "../assets/images/TL_Hero.png"; // Import fallback image
 import stars from "../assets/icons/ReviewStars.svg"; // Import stars SVG
 import soundOnIcon from "../assets/icons/soundon.svg"; // Import sound-on icon
 import soundOffIcon from "../assets/icons/soundoff.svg"; // Import sound-off icon
+import replayIcon from "../assets/icons/replay.svg"; // Import replay icon
 import AnimatedButton from "../components/RippleButton";
 
 const Hero = () => {
@@ -14,6 +15,13 @@ const Hero = () => {
     setIsMuted(!isMuted);
     if (videoRef.current) {
       videoRef.current.muted = !isMuted;
+    }
+  };
+
+  const replayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0; // Reset video to the beginning
+      videoRef.current.play(); // Start playing the video
     }
   };
 
@@ -62,17 +70,32 @@ const Hero = () => {
         <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" /> {/* Add your URL here */}
       </div>
 
-      {/* Mute/Unmute Button */}
-      <button
-        onClick={toggleMute}
-        className="absolute top-8 right-8 bg-white text-black font-bold p-3 rounded-full shadow hover:bg-gray-200 transition-colors"
-      >
-        <img
-          src={isMuted ? soundOffIcon : soundOnIcon}
-          alt={isMuted ? "Sound Off" : "Sound On"}
-          className="h-6 w-6"
-        />
-      </button>
+      {/* Controls */}
+      <div className="absolute top-8 right-8 flex items-center space-x-4">
+        {/* Replay Button */}
+        <button
+          onClick={replayVideo}
+          className="bg-white text-black font-bold p-3 rounded-full shadow hover:bg-gray-200 transition-colors"
+        >
+          <img
+            src={replayIcon}
+            alt="Replay"
+            className="h-6 w-6"
+          />
+        </button>
+
+        {/* Mute/Unmute Button */}
+        <button
+          onClick={toggleMute}
+          className="bg-white text-black font-bold p-3 rounded-full shadow hover:bg-gray-200 transition-colors"
+        >
+          <img
+            src={isMuted ? soundOffIcon : soundOnIcon}
+            alt={isMuted ? "Sound Off" : "Sound On"}
+            className="h-6 w-6"
+          />
+        </button>
+      </div>
     </section>
   );
 };
