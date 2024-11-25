@@ -71,17 +71,13 @@ const Hero = () => {
       </div>
 
       {/* Controls */}
-      <div className="absolute top-8 right-8 flex items-center space-x-4">
+      <div className="absolute top-8 flex items-center justify-between md:justify-end w-full px-4">
         {/* Replay Button */}
         <button
           onClick={replayVideo}
-          className="bg-white text-black font-bold p-3 rounded-full shadow hover:bg-gray-200 transition-colors"
+          className="bg-white text-black font-bold p-3 rounded-full md:mr-4 shadow hover:bg-gray-200 transition-colors"
         >
-          <img
-            src={replayIcon}
-            alt="Replay"
-            className="h-6 w-6"
-          />
+          <img src={replayIcon} alt="Replay" className="h-6 w-6" />
         </button>
 
         {/* Mute/Unmute Button */}
