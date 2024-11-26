@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import heroVideo from "../assets/videos/hero-bg.mp4";
-import heroImage from "../assets/images/TL_Hero.png"; // Import fallback image
+import heroImage from "../assets/images/heroImage.png"; // Import fallback image
 import stars from "../assets/icons/ReviewStars.svg"; // Import stars SVG
 import soundOnIcon from "../assets/icons/soundon.svg"; // Import sound-on icon
 import soundOffIcon from "../assets/icons/soundoff.svg"; // Import sound-off icon
@@ -30,15 +30,22 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Video */}
+      {/* Background for Mobile (Video) */}
       <video
-        ref={videoRef} // Attach ref to video
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        ref={videoRef}
+        className="absolute top-0 left-0 w-full h-full object-cover md:hidden" // Video only visible on mobile
         src={heroVideo}
         autoPlay
         muted={isMuted} // Controlled by state
-        playsInline // Add this line
-        poster={heroImage} // Set the fallback image as the poster
+        playsInline
+        poster={heroImage}
+      />
+
+      {/* Background for Desktop (Image) */}
+      <img
+        src={heroImage}
+        alt="Hero"
+        className="hidden md:block absolute top-0 left-0 w-full h-full object-cover" // Image only visible on desktop
       />
 
       {/* Overlay */}
@@ -70,12 +77,12 @@ const Hero = () => {
         <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" /> {/* Add your URL here */}
       </div>
 
-      {/* Controls */}
-      <div className="absolute top-8 flex items-center justify-between md:justify-end w-full px-4">
+      {/* Controls (Hidden on Desktop) */}
+      <div className="absolute top-8 flex items-center justify-between w-full px-4 md:hidden">
         {/* Replay Button */}
         <button
           onClick={replayVideo}
-          className="bg-white text-black font-bold p-3 rounded-full md:mr-4 shadow hover:bg-gray-200 transition-colors"
+          className="bg-white text-black font-bold p-3 rounded-full mr-4 shadow hover:bg-gray-200 transition-colors"
         >
           <img src={replayIcon} alt="Replay" className="h-6 w-6" />
         </button>
