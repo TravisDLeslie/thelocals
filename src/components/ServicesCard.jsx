@@ -16,33 +16,73 @@ const ServiceCard = ({
   sliderImages,
   url,
 }) => {
-  // Animation variants for the icon with custom delay
+  // Animation variants for the card container
+  const cardVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+        delay: index * 0.3,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  // Icon animation variants with looping
   const iconVariants = {
     hidden: {
-      rotateY: -90,
+      scale: 0.5,
       opacity: 0,
     },
     visible: {
-      rotateY: 0,
+      scale: 1,
       opacity: 1,
       transition: {
         type: "spring",
-        stiffness: 260,
+        stiffness: 100,
         damping: 20,
-        delay: index * 0.2, // Delay based on index
+        duration: 2,
+        repeat: 2,
+        repeatType: "reverse",
+      },
+    },
+  };
+
+  // Most Popular Badge animation
+  const badgeVariants = {
+    initial: { scale: 1, opacity: 1 },
+    animate: {
+      scale: [1, 1.1, 1],
+      backgroundColor: ["#FBD61E", "#FFD700", "#FBD61E"],
+      transition: {
+        duration: 1.5,
+        repeat: Infinity,
+        repeatType: "loop",
       },
     },
   };
 
   return (
-    <div className="bg-[#1e1e1e] rounded-sm shadow-lg flex flex-col relative overflow-hidden">
+    <motion.div
+      className="bg-[#1e1e1e] rounded-sm shadow-lg flex flex-col relative overflow-hidden"
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+    >
       {/* Slider Section */}
       <div className="relative">
         {/* Most Popular Badge */}
         {isMostPopular && (
-          <div className="absolute top-0 right-0 bg-[#FBD61E] text-black text-xs font-bold px-4 py-2 z-20">
+          <motion.div
+            className="absolute top-0 right-0 text-black text-xs font-bold px-4 py-2 z-20"
+            variants={badgeVariants}
+            initial="initial"
+            animate="animate"
+          >
             MOST POPULAR
-          </div>
+          </motion.div>
         )}
 
         {/* Swiper */}
@@ -71,6 +111,7 @@ const ServiceCard = ({
       <div className="p-6 flex flex-col">
         {/* Service Icon and Title */}
         <div className="flex items-center mb-4">
+          {/* Animated Icon */}
           <motion.img
             src={icon}
             alt="Service Icon"
@@ -78,8 +119,9 @@ const ServiceCard = ({
             variants={iconVariants}
             initial="hidden"
             animate="visible"
-            whileHover={{ scale: 1.2, rotate: 360 }} // Fun hover effect
           />
+
+          {/* Title */}
           <h2 className="text-xl font-bold text-white">{title}</h2>
         </div>
 
@@ -120,7 +162,7 @@ const ServiceCard = ({
           {buttonText}
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

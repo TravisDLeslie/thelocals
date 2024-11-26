@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import ServiceCard from "./ServicesCard";
 import all from "../assets/icons/allservices.svg";
 import interior from "../assets/icons/Interior.svg";
@@ -12,8 +13,6 @@ import exterior3 from "../assets/images/exterior3.jpg";
 import all1 from "../assets/images/all1.jpg";
 import all2 from "../assets/images/all2.jpg";
 import all3 from "../assets/images/all3.jpg";
-
-
 
 const ServicesPage = () => {
   const services = [
@@ -43,7 +42,6 @@ const ServicesPage = () => {
       buttonText: "Choose Package",
       sliderImages: [all1, all2, all3],
       url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/epv1N0MjQjRPJ6RpZeRU", // Add booking URL
-
     },
     {
       title: "Interior Only Package",
@@ -67,7 +65,6 @@ const ServicesPage = () => {
       buttonText: "Choose Package",
       sliderImages: [interior1, interior2, interior3],
       url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/EffVmklBKRmLedepiWdp", // Add booking URL
-
     },
     {
       title: "Exterior Only Package",
@@ -87,9 +84,19 @@ const ServicesPage = () => {
       buttonText: "Choose Package",
       sliderImages: [exterior1, exterior2, exterior3],
       url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/kWwqwFsjfzChDywownn1", // Add booking URL
-
     },
   ];
+
+  // Parent container animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3, // Delay between each card animation
+      },
+    },
+  };
 
   return (
     <section className="bg-[#0F0F0F] text-white py-24 px-4">
@@ -97,11 +104,17 @@ const ServicesPage = () => {
         Our Services & Packages
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mb-24 mx-auto">
+      {/* Animated Container */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mb-24 mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {services.map((service, index) => (
-          <ServiceCard key={index} {...service} />
+          <ServiceCard key={index} {...service} index={index} />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };
