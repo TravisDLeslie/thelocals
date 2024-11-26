@@ -71,8 +71,8 @@ const Footer = () => {
           <div>
             <h3 className="text-[#2DCBE0] text-start font-bold">OUR SERVICES AREAS</h3>
             <p className="w-[300px] text-start">
-              The Locals Detailing is Proudly Serving Residents in Bucks and Montgomery County in Pennsylvania.
-            </p>
+            <p className="text-white mb-2">Based out of Warrington</p> Our mobile unit services Montgomery, Bucks, Chester, Delaware, Berks, and Philadelphia counties.
+        </p>
           </div>
         </div>
 
