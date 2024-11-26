@@ -30,22 +30,15 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background for Mobile (Video) */}
+      {/* Background Video */}
       <video
         ref={videoRef}
-        className="absolute top-0 left-0 w-full h-full object-cover md:hidden" // Video only visible on mobile
+        className="absolute top-0 left-0 w-full h-full object-cover" // Video visible on all screens
         src={heroVideo}
         autoPlay
         muted={isMuted} // Controlled by state
         playsInline
         poster={heroImage}
-      />
-
-      {/* Background for Desktop (Image) */}
-      <img
-        src={heroImage}
-        alt="Hero"
-        className="hidden md:block absolute top-0 left-0 w-full h-full object-cover" // Image only visible on desktop
       />
 
       {/* Overlay */}
@@ -77,12 +70,12 @@ const Hero = () => {
         <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" /> {/* Add your URL here */}
       </div>
 
-      {/* Controls (Hidden on Desktop) */}
-      <div className="absolute top-8 flex items-center justify-between w-full px-4 md:hidden">
+      {/* Controls */}
+      <div className="absolute top-8 flex items-center justify-between w-full px-4">
         {/* Replay Button */}
         <button
           onClick={replayVideo}
-          className="bg-white text-black font-bold p-3 rounded-full mr-4 shadow hover:bg-gray-200 transition-colors"
+          className="bg-white text-black font-bold p-3 rounded-full shadow hover:bg-gray-200 transition-colors"
         >
           <img src={replayIcon} alt="Replay" className="h-6 w-6" />
         </button>
