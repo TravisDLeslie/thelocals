@@ -1,15 +1,15 @@
 import React, { useState, useRef } from "react";
 import heroVideo from "../assets/videos/hero-bg.mp4";
-import heroImage from "../assets/images/heroImage.png"; // Import fallback image
-import stars from "../assets/icons/ReviewStars.svg"; // Import stars SVG
-import soundOnIcon from "../assets/icons/soundon.svg"; // Import sound-on icon
-import soundOffIcon from "../assets/icons/soundoff.svg"; // Import sound-off icon
-import replayIcon from "../assets/icons/replay.svg"; // Import replay icon
+import heroImage from "../assets/images/heroImage.png";
+import stars from "../assets/icons/ReviewStars.svg";
+import soundOnIcon from "../assets/icons/soundon.svg";
+import soundOffIcon from "../assets/icons/soundoff.svg";
+import replayIcon from "../assets/icons/replay.svg";
 import AnimatedButton from "../components/RippleButton";
 
 const Hero = () => {
-  const [isMuted, setIsMuted] = useState(true); // State to toggle mute
-  const videoRef = useRef(null); // Ref for the video element
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef(null);
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
@@ -20,23 +20,23 @@ const Hero = () => {
 
   const replayVideo = () => {
     if (videoRef.current) {
-      videoRef.current.currentTime = 0; // Reset video to the beginning
-      videoRef.current.play(); // Start playing the video
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
     }
   };
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen max-w-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Video */}
       <video
         ref={videoRef}
-        className="absolute top-0 left-0 w-full h-full object-cover" // Video visible on all screens
+        className="absolute top-0 left-0 w-full h-full object-cover"
         src={heroVideo}
         autoPlay
-        muted={isMuted} // Controlled by state
+        muted={isMuted}
         playsInline
         poster={heroImage}
       />
@@ -45,7 +45,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4">
+      <div className="relative z-10 text-center text-white px-4 max-w-full overflow-hidden">
         {/* Main Hero Content */}
         <h1 className="text-4xl md:text-6xl font-bold">Welcome to The Locals</h1>
         <p className="mt-4 text-lg md:text-xl">
@@ -59,7 +59,12 @@ const Hero = () => {
             {Array(5)
               .fill()
               .map((_, i) => (
-                <img key={i} src={stars} alt="Star" className="h-4 md:h-6" />
+                <img
+                  key={i}
+                  src={stars}
+                  alt="Star"
+                  className="h-4 md:h-6 max-w-full"
+                />
               ))}
           </div>
           {/* Text */}
@@ -67,11 +72,11 @@ const Hero = () => {
             100+ <span className="ml-2 text-gray-100">5-star reviews</span>
           </p>
         </div>
-        <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" /> {/* Add your URL here */}
+        <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" />
       </div>
 
       {/* Controls */}
-      <div className="absolute top-8 flex items-center justify-between w-full px-4">
+      <div className="absolute top-8 left-0 right-0 flex items-center justify-between px-4">
         {/* Replay Button */}
         <button
           onClick={replayVideo}
