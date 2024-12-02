@@ -12,7 +12,7 @@ import FAQ from "./FAQ";
 
 const Homepage = () => {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <section id="hero">
         <Hero />
       </section>
