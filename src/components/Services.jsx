@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import ServiceCard from "./ServicesCard";
 import all from "../assets/icons/allservices.svg";
 import interior from "../assets/icons/Interior.svg";
@@ -41,7 +41,7 @@ const ServicesPage = () => {
       price: "$250",
       buttonText: "Choose Package",
       sliderImages: [all1, all2, all3],
-      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/epv1N0MjQjRPJ6RpZeRU", // Add booking URL
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/epv1N0MjQjRPJ6RpZeRU",
     },
     {
       title: "Interior Only Package",
@@ -64,7 +64,7 @@ const ServicesPage = () => {
       price: "$180",
       buttonText: "Choose Package",
       sliderImages: [interior1, interior2, interior3],
-      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/EffVmklBKRmLedepiWdp", // Add booking URL
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/EffVmklBKRmLedepiWdp",
     },
     {
       title: "Exterior Only Package",
@@ -83,20 +83,9 @@ const ServicesPage = () => {
       price: "$130",
       buttonText: "Choose Package",
       sliderImages: [exterior1, exterior2, exterior3],
-      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/kWwqwFsjfzChDywownn1", // Add booking URL
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/kWwqwFsjfzChDywownn1",
     },
   ];
-
-  // Parent container animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3, // Delay between each card animation
-      },
-    },
-  };
 
   return (
     <section className="bg-[#0F0F0F] text-white py-24 px-4">
@@ -104,17 +93,11 @@ const ServicesPage = () => {
         Our Services & Packages
       </h1>
 
-      {/* Animated Container */}
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mb-24 mx-auto"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mb-24 mx-auto">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} index={index} />
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };

@@ -35,7 +35,6 @@ const FeaturedSection = () => {
       </div>
 
       {/* White Space at the Bottom */}
-      <div className="bg-white py-12"></div>
     </section>
   );
 };
