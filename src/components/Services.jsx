@@ -38,7 +38,7 @@ const ServicesPage = () => {
           "Trunk Cleaned",
         ],
       },
-      price: "260",
+      price: "$260",
       buttonText: "Choose Package",
       sliderImages: [all1, all2, all3],
       url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/epv1N0MjQjRPJ6RpZeRU",
