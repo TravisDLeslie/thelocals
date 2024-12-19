@@ -45,11 +45,11 @@ const Footer = () => {
             
             <div className="flex items-center space-x-3 hover:text-[#5E297F]">
             <a
-  href="mailto:info@thelocalsdetailing.com"
+  href="mailto:info@thelocalsdetailing.co"
   className="flex items-center space-x-3 hover:text-[#5E297F]"
 >
   <img src={mail} alt="Email" className="h-5 w-5" />
-  <p>info@thelocalsdetailing.com</p>
+  <p>info@thelocalsdetailing.co</p>
 </a>
 
             </div>
