@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import aboutus from "../assets/images/Aboutus.png";
 import AnimatedButton from "../components/RippleButton";
+import LocationModal from "../components/LocationModal";
+
+// Reuse your assets (adjust paths if needed)
+import siteLogo from "../assets/icons/TheLocalsLogo.png";
+import cityBucks from "../assets/images/Bucks_County.webp";       // replace with real Bucks image
+import cityMontgomery from "../assets/images/Montgomery_County.webp"; // replace with real Montgomery image
 
 const AboutUs = () => {
+  const [showLocationModal, setShowLocationModal] = useState(false);
+
+  const cities = [
+    {
+      name: "Bucks County & Surrounding Areas",
+      imageSrc: cityBucks,
+      bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
+    },
+    {
+      name: "Central Montgomery County",
+      imageSrc: cityMontgomery,
+      bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
+    },
+  ];
+
   return (
     <section className="bg-white py-8">
       {/* Top White Padding */}
@@ -14,7 +35,7 @@ const AboutUs = () => {
           {/* Image Section */}
           <div className="mb-6">
             <img
-              src={aboutus} // Replace with the actual path to your image
+              src={aboutus}
               alt="About Us"
               className="rounded-lg shadow-lg"
             />
@@ -33,13 +54,24 @@ const AboutUs = () => {
             hope to serve you soon!
           </p>
 
-          {/* Call-to-Action Button */}
-         <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" />
+          {/* CTA: open modal instead of navigating */}
+          <AnimatedButton
+            label="Schedule Your Appointment"
+            onClick={() => setShowLocationModal(true)}
+          />
         </div>
       </div>
 
       {/* Bottom White Padding */}
       <div className="bg-[#0F0F0F] py-12"></div>
+
+      {/* Location Modal */}
+      <LocationModal
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+        logoSrc={siteLogo}
+        cities={cities}
+      />
     </section>
   );
 };

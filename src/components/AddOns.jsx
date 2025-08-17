@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedButton from "../components/RippleButton";
+import LocationModal from "../components/LocationModal";
+
+// Reuse your assets (adjust paths if needed)
+import siteLogo from "../assets/icons/TheLocalsLogo.png";
+import cityBucks from "../assets/images/Bucks_County.webp";       // replace with real Bucks image
+import cityMontgomery from "../assets/images/Montgomery_County.webp"; // replace with real Montgomery image
 
 const AddOns = () => {
+  const [showLocationModal, setShowLocationModal] = useState(false);
+
+  const cities = [
+    {
+      name: "Bucks County & Surrounding Areas",
+      imageSrc: cityBucks,
+      bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
+    },
+    {
+      name: "Central Montgomery County",
+      imageSrc: cityMontgomery,
+      bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
+    },
+  ];
+
   const addOns = [
     {
       title: "Clay Bar",
@@ -36,25 +57,16 @@ const AddOns = () => {
       price: "$75",
       description:
         "For cloudy/foggy headlights. Removes oxidation, fog, yellowing, and other build-up",
-      gradient: "from-[#4076AB]  to-[#4076AB]",
+      gradient: "from-[#4076AB] to-[#4076AB]",
     },
   ];
 
-  // Animation Variants
   const cardVariants = {
-    offscreen: {
-      x: 100,
-      opacity: 0,
-    },
+    offscreen: { x: 100, opacity: 0 },
     onscreen: (i) => ({
       x: 0,
       opacity: 1,
-      transition: {
-        type: "spring",
-        bounce: 0.2,
-        duration: 0.8,
-        delay: i * 0.2,
-      },
+      transition: { type: "spring", bounce: 0.2, duration: 0.8, delay: i * 0.2 },
     }),
   };
 
@@ -87,8 +99,20 @@ const AddOns = () => {
       </div>
 
       <div className="mt-8 text-center">
-        <AnimatedButton  url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" />
+        {/* Use the same animated CTA, but open the modal */}
+        <AnimatedButton
+          label="Schedule Your Appointment"
+          onClick={() => setShowLocationModal(true)}
+        />
       </div>
+
+      {/* Reuse the same modal */}
+      <LocationModal
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+        logoSrc={siteLogo}
+        cities={cities}
+      />
     </section>
   );
 };

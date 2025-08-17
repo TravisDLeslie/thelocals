@@ -6,18 +6,9 @@ import soundOnIcon from "../assets/icons/soundon.svg";
 import soundOffIcon from "../assets/icons/soundoff.svg";
 import replayIcon from "../assets/icons/replay.svg";
 import AnimatedButton from "../components/RippleButton";
-import LocationModal from "../components/LocationModal";
-import logo from "../assets/icons/TheLocalsLogo.png";
-
-
-// Example assets for cities & logo
-import siteLogo from "../assets/icons/TheLocalsLogo.png";
-import cityBucks from "../assets/images/Bucks_County.webp";
-import cityMontgomery from "../assets/images/Montgomery_County.webp";
 
 const Hero = () => {
   const [isMuted, setIsMuted] = useState(true);
-  const [showLocationModal, setShowLocationModal] = useState(false);
   const videoRef = useRef(null);
 
   const toggleMute = () => {
@@ -33,21 +24,6 @@ const Hero = () => {
       videoRef.current.play();
     }
   };
-
-  const cities = [
-    {
-      name: "Bucks County & Surrounding Areas",
-      imageSrc: cityBucks,
-      bookingUrl:
-        "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
-    },
-    {
-      name: "Central Montgomery County",
-      imageSrc: cityMontgomery,
-      bookingUrl:
-        "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
-    },
-  ];
 
   return (
     <section
@@ -70,37 +46,38 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-full overflow-hidden">
+        {/* Main Hero Content */}
         <h1 className="text-4xl md:text-6xl font-bold">Welcome to The Locals</h1>
-        <p className="mt-4 text-lg md:text-xl">Where convenience meets quality</p>
+        <p className="mt-4 text-lg md:text-xl">
+          Where convenience meets quality
+        </p>
 
         {/* Reviews Row */}
         <div className="flex items-center justify-center space-x-4 my-4">
+          {/* Render Stars */}
           <div className="flex space-x-1">
             {Array(5)
               .fill()
               .map((_, i) => (
-                <img key={i} src={stars} alt="Star" className="h-4 md:h-6 max-w-full" />
+                <img
+                  key={i}
+                  src={stars}
+                  alt="Star"
+                  className="h-4 md:h-6 max-w-full"
+                />
               ))}
           </div>
+          {/* Text */}
           <p className="text-xl font-semibold">
             100+ <span className="ml-2 text-gray-100">5-star reviews</span>
           </p>
         </div>
-
-        {/* Your existing CTA */}
-        <div className="flex items-center justify-center gap-3">
-  {/* Open Location Modal instead of navigating */}
-  <AnimatedButton
-    label="Schedule Your Appointment"
-    onClick={() => setShowLocationModal(true)}
-  />
-        </div>
-
-        
+        <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" />
       </div>
 
       {/* Controls */}
       <div className="absolute top-8 left-0 right-0 flex items-center justify-between px-4">
+        {/* Replay Button */}
         <button
           onClick={replayVideo}
           className="bg-white text-black font-bold p-3 rounded-full shadow hover:bg-gray-200 transition-colors"
@@ -108,6 +85,7 @@ const Hero = () => {
           <img src={replayIcon} alt="Replay" className="h-6 w-6" />
         </button>
 
+        {/* Mute/Unmute Button */}
         <button
           onClick={toggleMute}
           className="bg-white text-black font-bold p-3 rounded-full shadow hover:bg-gray-200 transition-colors"
@@ -119,14 +97,6 @@ const Hero = () => {
           />
         </button>
       </div>
-
-      {/* Modal */}
-      <LocationModal
-        isOpen={showLocationModal}
-        onClose={() => setShowLocationModal(false)}
-        logoSrc={siteLogo}
-        cities={cities}
-      />
     </section>
   );
 };
