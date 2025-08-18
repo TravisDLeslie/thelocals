@@ -67,7 +67,7 @@ const LocationModal = ({
         <div className="max-h-[88vh] overflow-y-auto">
           {/* Logo (HIDDEN on mobile, visible md+) */}
           {logoSrc && (
-            <div className="hidden md:flex justify-center pt-10 pb-4 px-6">
+            <div className=" md:flex justify-center pt-10 pb-4 px-6">
               <img
                 src={logoSrc}
                 alt="Logo"
@@ -98,8 +98,21 @@ const LocationModal = ({
                     <span className="font-semibold text-[#2DCBE0]">{c.name}</span>
                     <span className="ml-2 text-gray-300 group-open:rotate-180 transition-transform">▼</span>
                   </summary>
-                  <div className="px-3 py-2 text-[11px] text-gray-300 leading-snug">
-                    {c.areas}
+                  <div className="px-3 py-2 text-[11px] text-gray-300 leading-snug space-y-3">
+                    <p>{c.areas}</p>
+
+                    {/* Book Now button (mobile dropdown) */}
+                    <div className="flex justify-end">
+                      <a
+                        href={c.bookingUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => onClose?.()}
+                        className="inline-block rounded-sm bg-[#2DCBE0] px-3 py-1.5 uppercase text-[11px] font-bold text-[#1e1e1e] shadow hover:bg-[#5E297F] hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        Book Now
+                      </a>
+                    </div>
                   </div>
                 </details>
               ))}

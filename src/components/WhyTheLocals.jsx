@@ -22,7 +22,7 @@ const WhyTheLocals = () => {
       imageSrc: cityBucks,
       bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
       areas:
-        "Doylestown, Newtown, Yardley, Warminster, Warrington, Bensalem, Bristol, Langhorne, Levittown, New Hope",
+        "Doylestown, Warrington, Chalfont, Warminster, Newtown, Richboro, New Hope, Horsham, Ambler, Lansdale, Hatboro, Buckingham, Perkasie, Glenside, Philadelphia and more",
     },
     {
       name: "Central Montgomery County",
