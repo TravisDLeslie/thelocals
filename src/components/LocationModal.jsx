@@ -72,7 +72,7 @@ const LocationModal = ({
               <img
                 src={logoSrc}
                 alt="Logo"
-                className="h-20 md:h-28 w-auto object-contain"
+                className="h-12 md:h-20 w-auto object-contain"
                 loading="eager"
               />
             </div>
