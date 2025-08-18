@@ -111,7 +111,7 @@ const LocationModal = ({
                     <img
                       src={city.imageSrc}
                       alt={city.name}
-                      className="h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
+                      className="h-64 sm:h-48 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
                       loading="lazy"
                     />
 
@@ -139,7 +139,7 @@ const LocationModal = ({
 
                   {/* Optional per-card areas (desktop only to save vertical space on mobile) */}
                   {city.areas && (
-                    <div className="hidden md:block mt-6 mb-2 text-sm text-gray-200 text-center leading-snug break-words whitespace-normal px-4">
+                    <div className="hidden md:block mt-6 mb-2 text-sm text-gray-200 text-start leading-snug break-words whitespace-normal px-4">
                       {city.areas}
                     </div>
                   )}
