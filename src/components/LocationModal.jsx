@@ -91,7 +91,7 @@ const LocationModal = ({
 <div className="px-8 md:px-10 py-10">
   <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
     {cities.map((city) => (
-      <div
+     <div
   key={city.name}
   className="group relative overflow-hidden rounded-xl shadow-md p-2 bg-[#1A1A1A]"
 >
@@ -105,7 +105,7 @@ const LocationModal = ({
     />
 
     {/* Centered name */}
-    <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+    <div className="absolute inset-0 flex items-center justify-center bg-black/65">
       <p className="text-2xl font-semibold text-white drop-shadow-md text-center break-words whitespace-normal px-2">
         {city.name}
       </p>
@@ -122,11 +122,22 @@ const LocationModal = ({
     </a>
   </div>
 
-  {/* Sub header: towns within county */}
+  {/* Areas: mobile collapsible, desktop visible */}
   {city.areas && (
-    <div className="mt-6 mb-2 text-xs md:text-sm text-gray-200 text-center leading-snug break-words whitespace-normal px-4">
-      {city.areas}
-    </div>
+    <>
+      <details className="md:hidden mt-4 px-2">
+        <summary className="text-xs font-semibold text-[#2DCBE0] cursor-pointer select-none">
+          View areas
+        </summary>
+        <div className="mt-2 text-xs text-gray-200 leading-snug break-words whitespace-normal">
+          {city.areas}
+        </div>
+      </details>
+
+      <div className="hidden md:block mt-6 mb-2 text-sm text-gray-200 text-center leading-snug break-words whitespace-normal px-4">
+        {city.areas}
+      </div>
+    </>
   )}
 </div>
 
