@@ -17,7 +17,7 @@ const LocationModal = ({
   onClose,
   logoSrc,
   title = "Select The Location Where You Would Like to Book",
-  cities = [], // [{ name, imageSrc, bookingUrl }]
+  cities = [], // [{ name, imageSrc, bookingUrl, areas }]
 }) => {
   const dialogRef = useRef(null);
 
@@ -29,7 +29,7 @@ const LocationModal = ({
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, onClose]);
 
-  // Prevent scroll when open
+  // Prevent background scroll when open
   useEffect(() => {
     if (!isOpen) return;
     const original = document.body.style.overflow;
@@ -52,100 +52,103 @@ const LocationModal = ({
     >
       <div
         ref={dialogRef}
-        className="relative w-[92vw] max-w-4xl rounded-2xl bg-[#0F0F0F] text-gray-900 shadow-xl"
+        className="relative w-[92vw] max-w-4xl max-h-[92vh] rounded-2xl bg-[#0F0F0F] text-gray-900 shadow-xl overflow-hidden"
       >
-        {/* Close - upper left */}
-     <button
-  onClick={onClose}
-  className="absolute left-3 md:left-3 top-5 md:top-3 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 p-2 text-black shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#2DCBE0]"
-  aria-label="Close"
-  // Keep the button below clear of the iOS notch if present
-  style={{ top: 'max(1rem, env(safe-area-inset-top))' }}
->
-  <CloseIcon />
-</button>
-
-
- 
-        {/* Logo */}
-{logoSrc && (
-  <div className="flex justify-center pt-10 pb-4 px-6">
-    <img
-      src={logoSrc}
-      alt="Logo"
-      className="h-20 md:h-28 w-auto object-contain"
-      loading="eager"
-    />
-  </div>
-)}
-
-        {/* Title */}
-        <h2
-          id="location-modal-title"
-          className="px-6 text-white text-center text-2xl font-semibold md:text-3xl"
+        {/* Close - always visible, safe-area aware */}
+        <button
+          onClick={onClose}
+          className="absolute left-3 md:left-3 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 p-2 text-black shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#2DCBE0]"
+          aria-label="Close"
+          style={{ top: "max(0.75rem, env(safe-area-inset-top))" }}
         >
-          {title}
-        </h2>
+          <CloseIcon />
+        </button>
 
-{/* Cities Grid */}
-<div className="px-8 md:px-10 py-10">
-  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-    {cities.map((city) => (
-     <div
-  key={city.name}
-  className="group relative overflow-hidden rounded-xl shadow-md p-2 bg-[#1A1A1A]"
->
-  {/* Image + overlays */}
-  <div className="relative">
-    <img
-      src={city.imageSrc}
-      alt={city.name}
-      className="h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
-      loading="lazy"
-    />
+        {/* SCROLLABLE CONTENT */}
+        <div className="max-h-[88vh] overflow-y-auto">
+          {/* Logo */}
+          {logoSrc && (
+            <div className="flex justify-center pt-10 pb-4 px-6">
+              <img
+                src={logoSrc}
+                alt="Logo"
+                className="h-20 md:h-28 w-auto object-contain"
+                loading="eager"
+              />
+            </div>
+          )}
 
-    {/* Centered name */}
-    <div className="absolute inset-0 flex items-center justify-center bg-black/65">
-      <p className="text-2xl font-semibold text-white drop-shadow-md text-center break-words whitespace-normal px-2">
-        {city.name}
-      </p>
-    </div>
+          {/* Title */}
+          <h2
+            id="location-modal-title"
+            className="px-6 text-white text-center text-2xl font-semibold md:text-3xl"
+          >
+            {title}
+          </h2>
 
-    {/* Book Online button */}
-    <a
-      href={city.bookingUrl}
-      target="_blank"
-      rel="noreferrer"
-      className="absolute bottom-3 right-3 font-bold rounded-sm bg-[#2DCBE0] uppercase px-4 py-2 text-md text-[#1e1e1e] shadow hover:bg-[#5E297F] hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-    >
-      Book Online
-    </a>
-  </div>
+          {/* Compact Areas under title */}
+          <div className="mt-2 md:hidden px-6 text-center text-[11px] md:text-xs text-gray-300 space-y-1">
+            {cities.map((c) =>
+              c.areas ? (
+                <p key={c.name} className="leading-snug">
+                  <span className="font-semibold text-[#2DCBE0]">{c.name}:</span>{" "}
+                  {c.areas}
+                </p>
+              ) : null
+            )}
+          </div>
 
-  {/* Areas: mobile collapsible, desktop visible */}
-  {city.areas && (
-    <>
-      <details className="md:hidden mt-4 px-2">
-        <summary className="text-xs font-semibold text-[#2DCBE0] cursor-pointer select-none">
-          View areas
-        </summary>
-        <div className="mt-2 text-xs text-gray-200 leading-snug break-words whitespace-normal">
-          {city.areas}
+          {/* Cities Grid */}
+          <div className="px-8 md:px-10 py-10">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {cities.map((city) => (
+                <div
+                  key={city.name}
+                  className="group relative overflow-hidden rounded-xl shadow-md p-2 bg-[#1A1A1A]"
+                >
+                  {/* Image + overlays */}
+                  <div className="relative">
+                    <img
+                      src={city.imageSrc}
+                      alt={city.name}
+                      className="h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
+                      loading="lazy"
+                    />
+
+                    {/* Centered name */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/65">
+                      <p className="text-2xl font-semibold text-white drop-shadow-md text-center break-words whitespace-normal px-2">
+                        {city.name}
+                      </p>
+                    </div>
+
+                    {/* Book Online button */}
+                    <a
+                      href={city.bookingUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="absolute bottom-3 right-3 font-bold rounded-sm bg-[#2DCBE0] uppercase px-4 py-2 text-md text-[#1e1e1e] shadow hover:bg-[#5E297F] hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      onClick={() => {
+                        // optional: close modal after click
+                        onClose?.();
+                      }}
+                    >
+                      Book Online
+                    </a>
+                  </div>
+
+                  {/* Optional per-card areas (desktop only to save vertical space on mobile) */}
+                  {city.areas && (
+                    <div className="hidden md:block mt-6 mb-2 text-sm text-gray-200 text-center leading-snug break-words whitespace-normal px-4">
+                      {city.areas}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </details>
-
-      <div className="hidden md:block mt-6 mb-2 text-sm text-gray-200 text-center leading-snug break-words whitespace-normal px-4">
-        {city.areas}
-      </div>
-    </>
-  )}
-</div>
-
-      
-    ))}
-  </div>
-</div>
-
+        {/* /SCROLLABLE CONTENT */}
       </div>
     </div>
   );
