@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
 import ServiceCard from "./ServicesCard";
 import all from "../assets/icons/allservices.svg";
 import interior from "../assets/icons/Interior.svg";
@@ -14,7 +13,32 @@ import all1 from "../assets/images/all1.jpg";
 import all2 from "../assets/images/all2.jpg";
 import all3 from "../assets/images/all3.jpg";
 
+import LocationModal from "../components/LocationModal";
+import siteLogo from "../assets/icons/TheLocalsLogo.png";
+import cityBucks from "../assets/images/Bucks_County.webp";
+import cityMontgomery from "../assets/images/Montgomery_County.webp";
+
 const ServicesPage = () => {
+  const [showLocationModal, setShowLocationModal] = useState(false);
+
+  // Shown by the modal
+  const cities = [
+    {
+      name: "Bucks County & Surrounding Areas",
+      imageSrc: cityBucks,
+      bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
+      areas:
+        "Doylestown, Newtown, Yardley, Warminster, Warrington, Bensalem, Bristol, Langhorne, Levittown, New Hope",
+    },
+    {
+      name: "Central Montgomery County",
+      imageSrc: cityMontgomery,
+      bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
+      areas:
+        "Conshohocken, Flourtown, Blue Bell, Norristown, Wyndmoor, Germantown, King of Prussia, Plymouth Meeting, Springfield, Villanova",
+    },
+  ];
+
   const services = [
     {
       title: "Inside + Out Package",
@@ -95,9 +119,23 @@ const ServicesPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mb-24 mx-auto">
         {services.map((service, index) => (
-          <ServiceCard key={index} {...service} index={index} />
+          <ServiceCard
+            key={index}
+            {...service}
+            index={index}
+            // Open the modal instead of navigating
+            onChoose={() => setShowLocationModal(true)}
+          />
         ))}
       </div>
+
+      {/* Location Modal */}
+      <LocationModal
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+        logoSrc={siteLogo}
+        cities={cities}
+      />
     </section>
   );
 };

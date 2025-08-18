@@ -1,65 +1,87 @@
 import React, { useState } from "react";
 import AnimatedButton from "../components/RippleButton";
+import LocationModal from "../components/LocationModal";
 
-
+// assets
+import siteLogo from "../assets/icons/TheLocalsLogo.png";
+import cityBucks from "../assets/images/Bucks_County.webp";
+import cityMontgomery from "../assets/images/Montgomery_County.webp";
 
 const FAQ = () => {
-    const faqs = [
-      {
-        question: "How long does it take?",
-        answer: (
-          <p className="text-gray-600">
-            Depending on the package you have selected, a job may range from an hour to 4 hours. When booking an auto detail, we will always give you an estimate for how long a job will be, and schedule you accordingly.
-          </p>
-        ),
-      },
-      {
-        question: "What do you need from me?",
-        answer: (
-          <p className="text-gray-600">
-            We will need the keys to the vehicle as well as access to your home’s power and water supply.
-          </p>
-        ),
-      },
-      {
-        question: "What forms of payment do you take?",
-        answer: (
-          <p className="text-gray-600">
-            We accept cash, check, Venmo, or card. We always ask for payment after a job is completed to ensure you are satisfied!
-          </p>
-        ),
-      },
-      {
-        question: "How often should I schedule mobile detailing for my vehicle?",
-        answer: (
-          <p className="text-gray-600">
-            The frequency of detailing depends on factors such as your driving habits, environmental conditions, and personal preferences. As a general guideline, we recommend scheduling detailing appointments every 3 to 6 months to keep your vehicle looking its best and maintain value.
-          </p>
-        ),
-      },
-      {
-        question: "Is there anything I need to do before you come and detail my car?",
-        answer: (
-          <p className="text-gray-600">
-            Yes, please make sure to remove all personal items and belongings from your vehicle. This allows us to provide the most thorough and efficient service possible.
-          </p>
-        ),
-      },
-      {
-        question: "What happens if it rains on the day of my appointment?",
-        answer: (
-          <p className="text-gray-600">
-            In the event of rain, we typically do not perform detailing services. However, we assess the situation on a case-by-case basis to see if we can still complete the job. If not, we will promptly reschedule your appointment for the earliest available time.
-          </p>
-        ),
-      },
-    ];
+  const faqs = [
+    {
+      question: "How long does it take?",
+      answer: (
+        <p className="text-gray-600">
+          Depending on the package you have selected, a job may range from an hour to 4 hours. When booking an auto detail, we will always give you an estimate for how long a job will be, and schedule you accordingly.
+        </p>
+      ),
+    },
+    {
+      question: "What do you need from me?",
+      answer: (
+        <p className="text-gray-600">
+          We will need the keys to the vehicle as well as access to your home’s power and water supply.
+        </p>
+      ),
+    },
+    {
+      question: "What forms of payment do you take?",
+      answer: (
+        <p className="text-gray-600">
+          We accept cash, check, Venmo, or card. We always ask for payment after a job is completed to ensure you are satisfied!
+        </p>
+      ),
+    },
+    {
+      question: "How often should I schedule mobile detailing for my vehicle?",
+      answer: (
+        <p className="text-gray-600">
+          The frequency of detailing depends on factors such as your driving habits, environmental conditions, and personal preferences. As a general guideline, we recommend scheduling detailing appointments every 3 to 6 months to keep your vehicle looking its best and maintain value.
+        </p>
+      ),
+    },
+    {
+      question: "Is there anything I need to do before you come and detail my car?",
+      answer: (
+        <p className="text-gray-600">
+          Yes, please make sure to remove all personal items and belongings from your vehicle. This allows us to provide the most thorough and efficient service possible.
+        </p>
+      ),
+    },
+    {
+      question: "What happens if it rains on the day of my appointment?",
+      answer: (
+        <p className="text-gray-600">
+          In the event of rain, we typically do not perform detailing services. However, we assess the situation on a case-by-case basis to see if we can still complete the job. If not, we will promptly reschedule your appointment for the earliest available time.
+        </p>
+      ),
+    },
+  ];
 
   const [openIndex, setOpenIndex] = useState(null);
+  const [showLocationModal, setShowLocationModal] = useState(false);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const cities = [
+    {
+      name: "Bucks County & Surrounding Areas",
+      imageSrc: cityBucks,
+      bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
+      areas:
+        "Doylestown, Newtown, Yardley, Warminster, Warrington, Bensalem, Bristol, Langhorne, Levittown, New Hope",
+    },
+    {
+      name: "Central Montgomery County",
+      imageSrc: cityMontgomery,
+      bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
+      areas:
+        "Conshohocken, Flourtown, Blue Bell, Norristown, Wyndmoor, Germantown, King of Prussia, Plymouth Meeting, Springfield, Villanova",
+    },
+  ];
 
   return (
     <section className="bg-white py-24 mb-12 px-4">
@@ -78,33 +100,35 @@ const FAQ = () => {
         {/* FAQ List */}
         <div className="space-y-4 ">
           {faqs.map((faq, index) => (
-             <div
-             key={index}
-             className={`transition-all duration-300 ${
-               openIndex === index
-                 ? "border-l-[6px] bg-gray-50 border-gradient-to-b from-purple-500 via-blue-500 to-cyan-500"
-                 : "border-l-[6px] border-gray-200"
-             } p-4 rounded-lg shadow-md`}
-           >
-             {/* Question */}
-             <button
+            <div
+              key={index}
+              className={`transition-all duration-300 ${
+                openIndex === index
+                  ? "border-l-[6px] bg-gray-50 border-gradient-to-b from-purple-500 via-blue-500 to-cyan-500"
+                  : "border-l-[6px] border-gray-200"
+              } p-4 rounded-lg shadow-md`}
+            >
+              {/* Question */}
+              <button
                 onClick={() => toggleFAQ(index)}
                 className="flex justify-between items-start w-full font-semibold text-left text-lg text-gray-800 "
               >
                 {faq.question}
-                <span className={`transform transition-transform ${openIndex === index ? "rotate-180" : ""}`}>
+                <span
+                  className={`transform transition-transform ${
+                    openIndex === index ? "rotate-180" : ""
+                  }`}
+                >
                   ▼
                 </span>
               </button>
 
               {/* Answer */}
               {openIndex === index && (
-               <div className="mt-4 pl-4 text-start relative">
-               <div className="absolute top-0 left-0 h-full w-[3px]  bg-gradient-to-b from-purple-500 via-blue-500 to-cyan-500"></div>
-               <div className="pl-6">
-                 {faq.answer}
-               </div>
-             </div>
+                <div className="mt-4 pl-4 text-start relative">
+                  <div className="absolute top-0 left-0 h-full w-[3px]  bg-gradient-to-b from-purple-500 via-blue-500 to-cyan-500"></div>
+                  <div className="pl-6">{faq.answer}</div>
+                </div>
               )}
             </div>
           ))}
@@ -119,8 +143,20 @@ const FAQ = () => {
 
         {/* CTA Button */}
         <div className="mt-6">
-          <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K"/>        </div>
+          <AnimatedButton
+            label="Schedule Your Appointment"
+            onClick={() => setShowLocationModal(true)}
+          />
+        </div>
       </div>
+
+      {/* Location Modal */}
+      <LocationModal
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+        logoSrc={siteLogo}
+        cities={cities}
+      />
     </section>
   );
 };

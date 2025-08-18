@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ServiceCard from "../components/ServicesCard";
 import all from "../assets/icons/allservices.svg";
 import interior from "../assets/icons/Interior.svg";
@@ -13,7 +13,31 @@ import all1 from "../assets/images/all1.jpg";
 import all2 from "../assets/images/all2.jpg";
 import all3 from "../assets/images/all3.jpg";
 
+import LocationModal from "../components/LocationModal";
+import siteLogo from "../assets/icons/TheLocalsLogo.png";
+import cityBucks from "../assets/images/Bucks_County.webp";
+import cityMontgomery from "../assets/images/Montgomery_County.webp";
+
 const ServicesPage = () => {
+  const [showLocationModal, setShowLocationModal] = useState(false);
+
+  const cities = [
+    {
+      name: "Bucks County & Surrounding Areas",
+      imageSrc: cityBucks,
+      bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
+      areas:
+        "Doylestown, Newtown, Yardley, Warminster, Warrington, Bensalem, Bristol, Langhorne, Levittown, New Hope",
+    },
+    {
+      name: "Central Montgomery County",
+      imageSrc: cityMontgomery,
+      bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
+      areas:
+        "Conshohocken, Flourtown, Blue Bell, Norristown, Wyndmoor, Germantown, King of Prussia, Plymouth Meeting, Springfield, Villanova",
+    },
+  ];
+
   const services = [
     {
       title: "Inside + Out Package",
@@ -40,8 +64,7 @@ const ServicesPage = () => {
       price: "$260",
       buttonText: "Choose Package",
       sliderImages: [all1, all2, all3],
-      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/epv1N0MjQjRPJ6RpZeRU", // Add booking URL
-
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/epv1N0MjQjRPJ6RpZeRU",
     },
     {
       title: "Interior Only Package",
@@ -64,8 +87,7 @@ const ServicesPage = () => {
       price: "$180",
       buttonText: "Choose Package",
       sliderImages: [interior1, interior2, interior3],
-      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/EffVmklBKRmLedepiWdp", // Add booking URL
-
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/EffVmklBKRmLedepiWdp",
     },
     {
       title: "Exterior Only Package",
@@ -84,8 +106,7 @@ const ServicesPage = () => {
       price: "$130",
       buttonText: "Choose Package",
       sliderImages: [exterior1, exterior2, exterior3],
-      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/kWwqwFsjfzChDywownn1", // Add booking URL
-
+      url: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K/kWwqwFsjfzChDywownn1",
     },
   ];
 
@@ -97,9 +118,21 @@ const ServicesPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mb-24 mx-auto">
         {services.map((service, index) => (
-          <ServiceCard key={index} {...service} />
+          <ServiceCard
+            key={index}
+            {...service}
+            // Open LocationModal instead of navigating directly
+            onChoose={() => setShowLocationModal(true)}
+          />
         ))}
       </div>
+
+      <LocationModal
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+        logoSrc={siteLogo}
+        cities={cities}
+      />
     </section>
   );
 };

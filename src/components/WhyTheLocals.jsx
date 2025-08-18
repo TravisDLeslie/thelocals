@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import icon1 from "../assets/icons/locallyownedIcon.png";
 import icon2 from "../assets/icons/mobileIcon.png";
@@ -6,8 +6,33 @@ import icon3 from "../assets/icons/trustIcon.png";
 import icon4 from "../assets/icons/locationIcon.png";
 import icon5 from "../assets/icons/ecoIcon.png";
 import AnimatedButton from "../components/RippleButton";
+import LocationModal from "../components/LocationModal";
+
+// assets for the modal
+import siteLogo from "../assets/icons/TheLocalsLogo.png";
+import cityBucks from "../assets/images/Bucks_County.webp";
+import cityMontgomery from "../assets/images/Montgomery_County.webp";
 
 const WhyTheLocals = () => {
+  const [showLocationModal, setShowLocationModal] = useState(false);
+
+  const cities = [
+    {
+      name: "Bucks County & Surrounding Areas",
+      imageSrc: cityBucks,
+      bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
+      areas:
+        "Doylestown, Newtown, Yardley, Warminster, Warrington, Bensalem, Bristol, Langhorne, Levittown, New Hope",
+    },
+    {
+      name: "Central Montgomery County",
+      imageSrc: cityMontgomery,
+      bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
+      areas:
+        "Conshohocken, Flourtown, Blue Bell, Norristown, Wyndmoor, Germantown, King of Prussia, Plymouth Meeting, Springfield, Villanova",
+    },
+  ];
+
   const reasons = [
     {
       icon: icon1,
@@ -41,21 +66,12 @@ const WhyTheLocals = () => {
     },
   ];
 
-  // Animation Variants
   const itemVariants = {
-    hidden: {
-      rotateY: -90,
-      opacity: 0,
-    },
+    hidden: { rotateY: -90, opacity: 0 },
     visible: (i) => ({
       rotateY: 0,
       opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-        delay: i * 0.2,
-      },
+      transition: { type: "spring", stiffness: 100, damping: 10, delay: i * 0.2 },
     }),
   };
 
@@ -77,27 +93,30 @@ const WhyTheLocals = () => {
             viewport={{ once: true, amount: 0.1 }}
             custom={index}
           >
-            {/* Icon */}
             <div className="p-4 rounded-full">
-              <img
-                src={reason.icon}
-                alt={reason.title}
-                className="h-16 w-16 object-contain"
-              />
+              <img src={reason.icon} alt={reason.title} className="h-16 w-16 object-contain" />
             </div>
-
-            {/* Title */}
             <h3 className="text-xl font-bold text-black">{reason.title}</h3>
-
-            {/* Description */}
             <p className="text-gray-600">{reason.description}</p>
           </motion.div>
         ))}
       </div>
 
       <div className="mt-24 text-center">
-      <AnimatedButton url="https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K" />
+        {/* Open modal instead of navigating */}
+        <AnimatedButton
+          label="Schedule Your Appointment"
+          onClick={() => setShowLocationModal(true)}
+        />
       </div>
+
+      {/* Location Modal */}
+      <LocationModal
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+        logoSrc={siteLogo}
+        cities={cities}
+      />
     </section>
   );
 };

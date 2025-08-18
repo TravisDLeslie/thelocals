@@ -1,9 +1,17 @@
-import React from "react";
-import bgImage1 from "../assets/images/auto-detailing.jpg"; // Replace with your background images
+import React, { useState } from "react";
+import bgImage1 from "../assets/images/auto-detailing.jpg";
 import bgImage2 from "../assets/images/ceramic-coating.jpg";
 import bgImage3 from "../assets/images/paint-protection.jpg";
+import LocationModal from "../components/LocationModal";
+
+// assets for modal
+import siteLogo from "../assets/icons/TheLocalsLogo.png";
+import cityBucks from "../assets/images/Bucks_County.webp";
+import cityMontgomery from "../assets/images/Montgomery_County.webp";
 
 const FeaturedStyled = () => {
+  const [showLocationModal, setShowLocationModal] = useState(false);
+
   const features = [
     {
       title: "Auto Detailing",
@@ -22,6 +30,23 @@ const FeaturedStyled = () => {
       description: "Professional paint correction services",
       price: "Price Varies",
       bgImage: bgImage3,
+    },
+  ];
+
+  const cities = [
+    {
+      name: "Bucks County & Surrounding Areas",
+      imageSrc: cityBucks,
+      bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
+      areas:
+        "Doylestown, Newtown, Yardley, Warminster, Warrington, Bensalem, Bristol, Langhorne, Levittown, New Hope",
+    },
+    {
+      name: "Central Montgomery County",
+      imageSrc: cityMontgomery,
+      bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
+      areas:
+        "Conshohocken, Flourtown, Blue Bell, Norristown, Wyndmoor, Germantown, King of Prussia, Plymouth Meeting, Springfield, Villanova",
     },
   ];
 
@@ -46,13 +71,24 @@ const FeaturedStyled = () => {
               </h2>
               <p className="text-lg mb-2">{feature.description}</p>
               <p className="text-md font-semibold mb-6">{feature.price}</p>
-              <button className="bg-[#2DCBE0] text-black font-bold py-3 px-8 rounded shadow hover:bg-[#5E297F] hover:text-white transition-colors duration-300">
+              <button
+                onClick={() => setShowLocationModal(true)}
+                className="bg-[#2DCBE0] text-black font-bold py-3 px-8 rounded shadow hover:bg-[#5E297F] hover:text-white transition-colors duration-300"
+              >
                 Schedule Your Appointment
               </button>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Location Modal */}
+      <LocationModal
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+        logoSrc={siteLogo}
+        cities={cities}
+      />
     </section>
   );
 };

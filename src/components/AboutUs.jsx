@@ -5,8 +5,8 @@ import LocationModal from "../components/LocationModal";
 
 // Reuse your assets (adjust paths if needed)
 import siteLogo from "../assets/icons/TheLocalsLogo.png";
-import cityBucks from "../assets/images/Bucks_County.webp";       // replace with real Bucks image
-import cityMontgomery from "../assets/images/Montgomery_County.webp"; // replace with real Montgomery image
+import cityBucks from "../assets/images/Bucks_County.webp";
+import cityMontgomery from "../assets/images/Montgomery_County.webp";
 
 const AboutUs = () => {
   const [showLocationModal, setShowLocationModal] = useState(false);
@@ -16,11 +16,15 @@ const AboutUs = () => {
       name: "Bucks County & Surrounding Areas",
       imageSrc: cityBucks,
       bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
+      areas:
+        "Doylestown, Newtown, Yardley, Warminster, Warrington, Bensalem, Bristol, Langhorne, Levittown, New Hope",
     },
     {
       name: "Central Montgomery County",
       imageSrc: cityMontgomery,
       bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
+      areas:
+        "Conshohocken, Flourtown, Blue Bell, Norristown, Wyndmoor, Germantown, King of Prussia, Plymouth Meeting, Springfield, Villanova",
     },
   ];
 
