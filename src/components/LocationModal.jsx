@@ -46,7 +46,6 @@ const LocationModal = ({
       aria-modal="true"
       aria-labelledby="location-modal-title"
       onMouseDown={(e) => {
-        // click outside to close (ignore clicks inside the panel)
         if (e.target === e.currentTarget) onClose?.();
       }}
     >
@@ -68,11 +67,11 @@ const LocationModal = ({
         <div className="max-h-[88vh] overflow-y-auto">
           {/* Logo */}
           {logoSrc && (
-            <div className="flex justify-center pt-10 pb-4 px-6">
+            <div className="flex justify-center pt-6 md:pt-10 pb-3 md:pb-4 px-4 md:px-6">
               <img
                 src={logoSrc}
                 alt="Logo"
-                className="h-12 md:h-20 w-auto object-contain"
+                className="h-10 md:h-20 w-auto object-contain"
                 loading="eager"
               />
             </div>
@@ -81,13 +80,13 @@ const LocationModal = ({
           {/* Title */}
           <h2
             id="location-modal-title"
-            className="px-6 text-white text-center text-2xl font-semibold md:text-3xl"
+            className="px-4 md:px-6 text-white text-center text-xl md:text-3xl font-semibold"
           >
             {title}
           </h2>
 
-          {/* Compact Areas under title */}
-          <div className="mt-2 md:hidden px-6 text-center text-[11px] md:text-xs text-gray-300 space-y-1">
+          {/* Compact Areas under title (mobile only) */}
+          <div className="mt-2 md:hidden px-4 text-center text-[11px] text-gray-300 space-y-1">
             {cities.map((c) =>
               c.areas ? (
                 <p key={c.name} className="leading-snug">
@@ -99,25 +98,25 @@ const LocationModal = ({
           </div>
 
           {/* Cities Grid */}
-          <div className="px-8 md:px-10 py-10">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="px-4 md:px-10 py-4 md:py-10">
+            <div className="grid grid-cols-1 gap-4 md:gap-8 md:grid-cols-2">
               {cities.map((city) => (
                 <div
                   key={city.name}
-                  className="group relative overflow-hidden rounded-xl shadow-md p-2 bg-[#1A1A1A]"
+                  className="group relative overflow-hidden rounded-xl shadow-md p-2 bg-[#1A1A1A] h-[38vh] md:h-auto"
                 >
-                  {/* Image + overlays */}
-                  <div className="relative">
+                  {/* Image wrapper fills card on mobile */}
+                  <div className="relative h-full md:h-auto rounded-lg overflow-hidden">
                     <img
                       src={city.imageSrc}
                       alt={city.name}
-                      className="h-64 sm:h-48 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
+                      className="w-full h-full md:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                       loading="lazy"
                     />
 
                     {/* Centered name */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/65">
-                      <p className="text-2xl font-semibold text-white drop-shadow-md text-center break-words whitespace-normal px-2">
+                      <p className="text-2xl md:text-2xl font-semibold text-white drop-shadow-md text-center break-words whitespace-normal px-2">
                         {city.name}
                       </p>
                     </div>
@@ -128,16 +127,13 @@ const LocationModal = ({
                       target="_blank"
                       rel="noreferrer"
                       className="absolute bottom-3 right-3 font-bold rounded-sm bg-[#2DCBE0] uppercase px-4 py-2 text-md text-[#1e1e1e] shadow hover:bg-[#5E297F] hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      onClick={() => {
-                        // optional: close modal after click
-                        onClose?.();
-                      }}
+                      onClick={() => onClose?.()}
                     >
                       Book Online
                     </a>
                   </div>
 
-                  {/* Optional per-card areas (desktop only to save vertical space on mobile) */}
+                  {/* Per-card areas (desktop only to save vertical space on mobile) */}
                   {city.areas && (
                     <div className="hidden md:block mt-6 mb-2 text-sm text-gray-200 text-start leading-snug break-words whitespace-normal px-4">
                       {city.areas}
