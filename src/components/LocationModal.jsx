@@ -58,7 +58,7 @@ const LocationModal = ({
           onClick={onClose}
           className="absolute left-3 md:left-3 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 p-2 text-black shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#2DCBE0]"
           aria-label="Close"
-          style={{ top: "max(0.75rem, env(safe-area-inset-top))" }}
+          style={{ top: "max(0.50rem, env(safe-area-inset-top))" }}
         >
           <CloseIcon />
         </button>
@@ -67,7 +67,7 @@ const LocationModal = ({
         <div className="max-h-[88vh] overflow-y-auto">
           {/* Logo (HIDDEN on mobile, visible md+) */}
           {logoSrc && (
-            <div className=" md:flex justify-center pt-10 pb-4 px-6">
+            <div className="hidden md:flex justify-center pt-10 pb-4 px-6">
               <img
                 src={logoSrc}
                 alt="Logo"
