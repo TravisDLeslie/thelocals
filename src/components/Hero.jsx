@@ -43,7 +43,7 @@ const Hero = () => {
       "Doylestown, Warrington, Chalfont, Warminster, Newtown, Richboro, New Hope, Horsham, Ambler, Lansdale, Hatboro, Buckingham, Perkasie, Glenside, Philadelphia and more",
   },
   {
-    name: "Central Montgomery County",
+    name: "Central Montgomery County Areas",
     imageSrc: cityMontgomery,
     bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
     areas:
