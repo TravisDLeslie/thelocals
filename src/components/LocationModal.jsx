@@ -55,13 +55,16 @@ const LocationModal = ({
         className="relative w-[92vw] max-w-4xl rounded-2xl bg-[#0F0F0F] text-gray-900 shadow-xl"
       >
         {/* Close - upper left */}
-        <button
-          onClick={onClose}
-          className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full bg-gray-100 p-2 text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          aria-label="Close"
-        >
-          <CloseIcon />
-        </button>
+     <button
+  onClick={onClose}
+  className="absolute left-3 md:left-3 top-5 md:top-3 z-50 inline-flex items-center gap-2 rounded-full bg-white/90 p-2 text-black shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#2DCBE0]"
+  aria-label="Close"
+  // Keep the button below clear of the iOS notch if present
+  style={{ top: 'max(1rem, env(safe-area-inset-top))' }}
+>
+  <CloseIcon />
+</button>
+
 
  
         {/* Logo */}
@@ -89,32 +92,45 @@ const LocationModal = ({
   <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
     {cities.map((city) => (
       <div
-        key={city.name}
-        className="group relative overflow-hidden rounded-xl shadow-md"
-      >
-        <img
-          src={city.imageSrc}
-          alt={city.name}
-          className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          loading="lazy"
-        />
+  key={city.name}
+  className="group relative overflow-hidden rounded-xl shadow-md p-2 bg-[#1A1A1A]"
+>
+  {/* Image + overlays */}
+  <div className="relative">
+    <img
+      src={city.imageSrc}
+      alt={city.name}
+      className="h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
+      loading="lazy"
+    />
 
-     <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-          <p className="text-2xl font-semibold text-white drop-shadow-md text-center break-words whitespace-normal px-2">
-            {city.name}
-          </p>
-        </div>
+    {/* Centered name */}
+    <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+      <p className="text-2xl font-semibold text-white drop-shadow-md text-center break-words whitespace-normal px-2">
+        {city.name}
+      </p>
+    </div>
 
-        {/* Book Online button (bottom-right) */}
-        <a
-          href={city.bookingUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="absolute bottom-0 right-0 font-bold rounded-sm bg-[#2DCBE0] uppercase px-4 py-2 text-md text-[#1e1e1e] shadow hover:bg-[#5E297F] hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          Book Online
-        </a>
-      </div>
+    {/* Book Online button */}
+    <a
+      href={city.bookingUrl}
+      target="_blank"
+      rel="noreferrer"
+      className="absolute bottom-3 right-3 font-bold rounded-sm bg-[#2DCBE0] uppercase px-4 py-2 text-md text-[#1e1e1e] shadow hover:bg-[#5E297F] hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      Book Online
+    </a>
+  </div>
+
+  {/* Sub header: towns within county */}
+  {city.areas && (
+    <div className="mt-6 mb-2 text-xs md:text-sm text-gray-200 text-center leading-snug break-words whitespace-normal px-4">
+      {city.areas}
+    </div>
+  )}
+</div>
+
+      
     ))}
   </div>
 </div>

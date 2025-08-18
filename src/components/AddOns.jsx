@@ -12,17 +12,21 @@ const AddOns = () => {
   const [showLocationModal, setShowLocationModal] = useState(false);
 
   const cities = [
-    {
-      name: "Bucks County & Surrounding Areas",
-      imageSrc: cityBucks,
-      bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
-    },
-    {
-      name: "Central Montgomery County",
-      imageSrc: cityMontgomery,
-      bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
-    },
-  ];
+  {
+    name: "Bucks County & Surrounding Areas",
+    imageSrc: cityBucks,
+    bookingUrl: "https://app.urable.com/virtual-shop/8KCjpE0z7HIuNt0ZaJ2K",
+    areas:
+      "Doylestown, Newtown, Yardley, Warminster, Warrington, Bensalem, Bristol, Langhorne, Levittown, New Hope",
+  },
+  {
+    name: "Central Montgomery County",
+    imageSrc: cityMontgomery,
+    bookingUrl: "https://app.urable.com/virtual-shop/lgwyYJjLNrRSLyPmMMqa",
+    areas:
+      "Conshohocken, Flourtown, Blue Bell, Norristown, Wyndmoor, Germantown, King of Prussia, Plymouth Meeting, Springfield, Villanova",
+  },
+];
 
   const addOns = [
     {
