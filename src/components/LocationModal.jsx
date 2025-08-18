@@ -127,7 +127,7 @@ const LocationModal = ({
                   {city.areas && (
                     <details className="md:hidden group border border-white/10 rounded-lg mt-2 overflow-hidden">
                       <summary className="flex items-center justify-between cursor-pointer select-none bg-white/5 px-3 py-2 text-[12px] text-gray-200">
-                        <span className="font-semibold text-[#2DCBE0]">{city.name} Areas</span>
+                        <span className="font-semibold text-[#2DCBE0]">{city.name} </span>
                         <span className="ml-2 text-gray-300 group-open:rotate-180 transition-transform">
                           ▼
                         </span>
