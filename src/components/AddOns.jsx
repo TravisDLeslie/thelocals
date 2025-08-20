@@ -31,34 +31,34 @@ const AddOns = () => {
   const addOns = [
     {
       title: "Clay Bar",
-      price: "$40",
+      price: "$74.99",
       description:
         "Remove embedded contaminants that can cause damage to your paint. This treatment will make rough paint smooth and enhance the sealant applied after",
       gradient: "from-[#5E297F] to-[#5E297F]",
     },
     {
       title: "Odor Removal",
-      price: "$50",
+      price: "$99.99",
       description:
         "Ozone treatment & fragrance bomb (kills bacteria & leaves fresh scent).",
       gradient: "from-[#553B89] to-[#553B89]",
     },
     {
       title: "Black Trim Restoration",
-      price: "$50",
+      price: "$99.99",
       description: "Completely restores faded trim back to black",
       gradient: "from-[#4E4A91] to-[#4E4A91]",
     },
     {
       title: "Engine Bay Detail",
-      price: "$50",
+      price: "$49.99",
       description:
         "Deep cleaning of the engine bay to enhance performance, and eliminate daily build up",
       gradient: "from-[#475899] to-[#475899]",
     },
     {
       title: "Headlight Restoration & Polish",
-      price: "$75",
+      price: "$99.99",
       description:
         "For cloudy/foggy headlights. Removes oxidation, fog, yellowing, and other build-up",
       gradient: "from-[#4076AB] to-[#4076AB]",
