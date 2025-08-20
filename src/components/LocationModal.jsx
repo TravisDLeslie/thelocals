@@ -123,33 +123,35 @@ const LocationModal = ({
                     </div>
                   </div>
 
-                  {/* Mobile dropdown for this county (UNDER the card) */}
-                  {city.areas && (
-                    <details className="md:hidden group border border-white/10 rounded-lg mt-2 overflow-hidden">
-                      <summary className="flex items-center justify-between cursor-pointer select-none bg-white/5 px-3 py-2 text-[12px] text-gray-200">
-                        <span className="font-semibold text-[#2DCBE0]">{city.name} </span>
-                        <span className="ml-2 text-gray-300 group-open:rotate-180 transition-transform">
-                          ▼
-                        </span>
-                      </summary>
-                      <div className="px-3 py-2 text-[11px] text-gray-300 leading-snug space-y-3">
-                        <p>{city.areas}</p>
+                 {/* Mobile dropdown for this county (UNDER the card) */}
+{city.areas && (
+  <details className="md:hidden group border border-white/10 rounded-lg mt-2 overflow-hidden">
+    <summary className="flex items-center justify-between cursor-pointer select-none bg-white/5 px-3 py-2 text-[12px] text-gray-200">
+      <span className="font-semibold text-[#2DCBE0]">
+        {city.name} area serviced
+      </span>
+      <span className="ml-2 text-gray-300 group-open:rotate-180 transition-transform">
+        ▼
+      </span>
+    </summary>
+    <div className="px-3 py-2 text-[11px] text-gray-300 leading-snug space-y-3">
+      <p>{city.areas}</p>
 
-                        {/* Book Now button (mobile dropdown) */}
-                        <div className="flex justify-end">
-                          <a
-                            href={city.bookingUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            onClick={() => onClose?.()}
-                            className="inline-block rounded-sm bg-[#2DCBE0] px-3 py-1.5 uppercase text-[11px] font-bold text-[#1e1e1e] shadow hover:bg-[#5E297F] hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          >
-                            Book Now
-                          </a>
-                        </div>
-                      </div>
-                    </details>
-                  )}
+      {/* Book Now button (mobile dropdown) */}
+      <div className="flex justify-end">
+        <a
+          href={city.bookingUrl}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => onClose?.()}
+          className="inline-block rounded-sm bg-[#2DCBE0] px-3 py-1.5 uppercase text-[11px] font-bold text-[#1e1e1e] shadow hover:bg-[#5E297F] hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Book Now
+        </a>
+      </div>
+    </div>
+  </details>
+)}
 
                   {/* Desktop per-card areas (unchanged) */}
                   {city.areas && (
