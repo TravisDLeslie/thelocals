@@ -1,0 +1,30 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+  /* Force default Swiper dots to white */
+.swiper-pagination-bullet {
+    background-color: white !important; /* Forces the dots to be white */
+    opacity: 0.6 !important; /* Dim inactive dots */
+    transition: opacity 0.7s ease, transform 0.3s ease;
+  }
+  
+  /* Force active Swiper dot to white */
+  .swiper-pagination-bullet-active {
+    background-color: white !important; /* Ensures the active dot is white */
+    opacity: 1 !important; /* Full opacity for active dots */
+    transform: scale(1.2); /* Optional: Slightly enlarge the active dot */
+  }
+  
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+
+  
