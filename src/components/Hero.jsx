@@ -86,7 +86,7 @@ const Hero = () => {
               ))}
           </div>
           <p className="text-xl font-semibold">
-            207+ <span className="ml-2 text-gray-100">5-star reviews</span>
+            228+ <span className="ml-2 text-gray-100">5-star reviews</span>
           </p>
         </div>
 
